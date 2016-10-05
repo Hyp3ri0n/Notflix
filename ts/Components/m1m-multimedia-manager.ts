@@ -8,7 +8,9 @@ const htmlTemplate = `
                 <div>
                     <div class="paddingIconMenu">
                         <div style="display: inline-block;" (click)="menuClick()">
-                            <div style="display: inline-block;"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+                            <div style="display: inline-block;">
+                                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+                            </div>
                             <div *ngIf="menuDisplayed" style="display: inline-block;">Menu</div>
                         </div>
                     </div>
@@ -16,7 +18,13 @@ const htmlTemplate = `
             </div>
             <hr/>
             <div class="" style="height: 60%; color:white; overflow: hidden;">
-                <div><m1m-server *ngFor="let server of mediaServers" [nf]="server" [menuDisplayed]="menuDisplayed" [crossDisplayed]="currentServer != null"></m1m-server></div>
+                <div>
+                    <m1m-server *ngFor="let server of mediaServers" 
+                                [nf]="server" 
+                                [menuDisplayed]="menuDisplayed" 
+                                [crossDisplayed]="currentServer != null">
+                    </m1m-server>
+                </div>
             </div>
             <hr/>
             <div class="" style="max-height: 20%; color:white;">
@@ -73,8 +81,7 @@ const htmlTemplate = `
 
 @Component({
     selector		: "comp-multimedia-manager",
-    template		: htmlTemplate,
-    providers       : [CommService]
+    template		: htmlTemplate
 })
 export class CompMultimediaManager {
     @Input() title	: string;

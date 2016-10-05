@@ -11,8 +11,7 @@ const htmlTemplate = `
 
 @Component({
     selector		: "m1m-directory",
-    template		: htmlTemplate,
-    providers       : []
+    template		: htmlTemplate
 })
 
 export class CompDirectory {

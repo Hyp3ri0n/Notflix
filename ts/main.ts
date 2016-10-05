@@ -11,12 +11,12 @@ import { CompMultimediaManager } 	from "./Components/m1m-multimedia-manager";
 import { CompMedia } 				from "./Components/m1m-media";
 import { CompServer } 				from "./Components/m1m-server";
 import { CompDirectory } 				from "./Components/m1m-directory";
+import {CommService} from "./Services/CommService";
 
 @Component({
 	selector	: "root-manager",
 	template	: `<comp-multimedia-manager title="Gestion des services UPnP/DLNA"></comp-multimedia-manager>
-				  `,
-	providers	: []
+				  `
 })
 class RootManager {
 }
@@ -25,6 +25,7 @@ class RootManager {
 @NgModule({
 	imports     : [BrowserModule, FormsModule, HttpModule],
 	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer, CompDirectory],
+	providers	: [CommService],
 	bootstrap   : [RootManager]
 })
 export class AppModule {}

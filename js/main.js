@@ -1,5 +1,5 @@
 /// <reference path="../typings/index.d.ts" />
-System.register(["@angular/platform-browser-dynamic", "@angular/core", "@angular/platform-browser", "@angular/forms", "@angular/http", "./Components/m1m-multimedia-manager", "./Components/m1m-media", "./Components/m1m-server", "./Components/m1m-directory"], function(exports_1, context_1) {
+System.register(["@angular/platform-browser-dynamic", "@angular/core", "@angular/platform-browser", "@angular/forms", "@angular/http", "./Components/m1m-multimedia-manager", "./Components/m1m-media", "./Components/m1m-server", "./Components/m1m-directory", "./Services/CommService"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +11,7 @@ System.register(["@angular/platform-browser-dynamic", "@angular/core", "@angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var platform_browser_dynamic_1, core_1, platform_browser_1, core_2, forms_1, http_1, m1m_multimedia_manager_1, m1m_media_1, m1m_server_1, m1m_directory_1;
+    var platform_browser_dynamic_1, core_1, platform_browser_1, core_2, forms_1, http_1, m1m_multimedia_manager_1, m1m_media_1, m1m_server_1, m1m_directory_1, CommService_1;
     var RootManager, AppModule;
     return {
         setters:[
@@ -42,6 +42,9 @@ System.register(["@angular/platform-browser-dynamic", "@angular/core", "@angular
             },
             function (m1m_directory_1_1) {
                 m1m_directory_1 = m1m_directory_1_1;
+            },
+            function (CommService_1_1) {
+                CommService_1 = CommService_1_1;
             }],
         execute: function() {
             let RootManager = class RootManager {
@@ -50,8 +53,7 @@ System.register(["@angular/platform-browser-dynamic", "@angular/core", "@angular
                 core_1.Component({
                     selector: "root-manager",
                     template: `<comp-multimedia-manager title="Gestion des services UPnP/DLNA"></comp-multimedia-manager>
-				  `,
-                    providers: []
+				  `
                 }), 
                 __metadata('design:paramtypes', [])
             ], RootManager);
@@ -62,6 +64,7 @@ System.register(["@angular/platform-browser-dynamic", "@angular/core", "@angular
                 core_2.NgModule({
                     imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
                     declarations: [RootManager, m1m_multimedia_manager_1.CompMultimediaManager, m1m_media_1.CompMedia, m1m_server_1.CompServer, m1m_directory_1.CompDirectory],
+                    providers: [CommService_1.CommService],
                     bootstrap: [RootManager]
                 }), 
                 __metadata('design:paramtypes', [])
@@ -72,4 +75,4 @@ System.register(["@angular/platform-browser-dynamic", "@angular/core", "@angular
     }
 });
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsOENBQThDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O1lBb0I5QztZQUNBLENBQUM7WUFQRDtnQkFBQyxnQkFBUyxDQUFDO29CQUNWLFFBQVEsRUFBRyxjQUFjO29CQUN6QixRQUFRLEVBQUc7T0FDTDtvQkFDTixTQUFTLEVBQUcsRUFBRTtpQkFDZCxDQUFDOzsyQkFBQTtZQUlGLG1CQUFtQjtZQU1uQjtZQUF3QixDQUFDO1lBTHpCO2dCQUFDLGVBQVEsQ0FBQztvQkFDVCxPQUFPLEVBQU8sQ0FBQyxnQ0FBYSxFQUFFLG1CQUFXLEVBQUUsaUJBQVUsQ0FBQztvQkFDdEQsWUFBWSxFQUFFLENBQUMsV0FBVyxFQUFFLDhDQUFxQixFQUFFLHFCQUFTLEVBQUUsdUJBQVUsRUFBRSw2QkFBYSxDQUFDO29CQUN4RixTQUFTLEVBQUssQ0FBQyxXQUFXLENBQUM7aUJBQzNCLENBQUM7O3lCQUFBO1lBQ0YsaUNBQXlCLENBQUE7WUFFekIsaURBQXNCLEVBQUUsQ0FBQyxlQUFlLENBQUMsU0FBUyxDQUFDLENBQUMiLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vLyA8cmVmZXJlbmNlIHBhdGg9XCIuLi90eXBpbmdzL2luZGV4LmQudHNcIiAvPlxuXG5pbXBvcnQgeyBwbGF0Zm9ybUJyb3dzZXJEeW5hbWljIH0gICBmcm9tIFwiQGFuZ3VsYXIvcGxhdGZvcm0tYnJvd3Nlci1keW5hbWljXCI7XG5pbXBvcnQge0NvbXBvbmVudH0gICAgICAgICAgICAgICAgICBmcm9tIFwiQGFuZ3VsYXIvY29yZVwiO1xuaW1wb3J0IHsgQnJvd3Nlck1vZHVsZSB9ICAgIFx0XHRmcm9tIFwiQGFuZ3VsYXIvcGxhdGZvcm0tYnJvd3NlclwiO1xuaW1wb3J0IHsgTmdNb2R1bGUgfSBcdFx0XHRcdGZyb20gXCJAYW5ndWxhci9jb3JlXCI7XG5pbXBvcnQgeyBGb3Jtc01vZHVsZSB9ICAgXHRcdFx0ZnJvbSBcIkBhbmd1bGFyL2Zvcm1zXCI7XG5pbXBvcnQge0h0dHBNb2R1bGV9IFx0XHRcdFx0ZnJvbSBcIkBhbmd1bGFyL2h0dHBcIjtcblxuaW1wb3J0IHsgQ29tcE11bHRpbWVkaWFNYW5hZ2VyIH0gXHRmcm9tIFwiLi9Db21wb25lbnRzL20xbS1tdWx0aW1lZGlhLW1hbmFnZXJcIjtcbmltcG9ydCB7IENvbXBNZWRpYSB9IFx0XHRcdFx0ZnJvbSBcIi4vQ29tcG9uZW50cy9tMW0tbWVkaWFcIjtcbmltcG9ydCB7IENvbXBTZXJ2ZXIgfSBcdFx0XHRcdGZyb20gXCIuL0NvbXBvbmVudHMvbTFtLXNlcnZlclwiO1xuaW1wb3J0IHsgQ29tcERpcmVjdG9yeSB9IFx0XHRcdFx0ZnJvbSBcIi4vQ29tcG9uZW50cy9tMW0tZGlyZWN0b3J5XCI7XG5cbkBDb21wb25lbnQoe1xuXHRzZWxlY3Rvclx0OiBcInJvb3QtbWFuYWdlclwiLFxuXHR0ZW1wbGF0ZVx0OiBgPGNvbXAtbXVsdGltZWRpYS1tYW5hZ2VyIHRpdGxlPVwiR2VzdGlvbiBkZXMgc2VydmljZXMgVVBuUC9ETE5BXCI+PC9jb21wLW11bHRpbWVkaWEtbWFuYWdlcj5cblx0XHRcdFx0ICBgLFxuXHRwcm92aWRlcnNcdDogW11cbn0pXG5jbGFzcyBSb290TWFuYWdlciB7XG59XG5cbi8vZW5hYmxlUHJvZE1vZGUoKTtcbkBOZ01vZHVsZSh7XG5cdGltcG9ydHMgICAgIDogW0Jyb3dzZXJNb2R1bGUsIEZvcm1zTW9kdWxlLCBIdHRwTW9kdWxlXSxcblx0ZGVjbGFyYXRpb25zOiBbUm9vdE1hbmFnZXIsIENvbXBNdWx0aW1lZGlhTWFuYWdlciwgQ29tcE1lZGlhLCBDb21wU2VydmVyLCBDb21wRGlyZWN0b3J5XSxcblx0Ym9vdHN0cmFwICAgOiBbUm9vdE1hbmFnZXJdXG59KVxuZXhwb3J0IGNsYXNzIEFwcE1vZHVsZSB7fVxuXG5wbGF0Zm9ybUJyb3dzZXJEeW5hbWljKCkuYm9vdHN0cmFwTW9kdWxlKEFwcE1vZHVsZSk7XG4iXSwic291cmNlUm9vdCI6IiJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsOENBQThDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O1lBb0I5QztZQUNBLENBQUM7WUFORDtnQkFBQyxnQkFBUyxDQUFDO29CQUNWLFFBQVEsRUFBRyxjQUFjO29CQUN6QixRQUFRLEVBQUc7T0FDTDtpQkFDTixDQUFDOzsyQkFBQTtZQUlGLG1CQUFtQjtZQU9uQjtZQUF3QixDQUFDO1lBTnpCO2dCQUFDLGVBQVEsQ0FBQztvQkFDVCxPQUFPLEVBQU8sQ0FBQyxnQ0FBYSxFQUFFLG1CQUFXLEVBQUUsaUJBQVUsQ0FBQztvQkFDdEQsWUFBWSxFQUFFLENBQUMsV0FBVyxFQUFFLDhDQUFxQixFQUFFLHFCQUFTLEVBQUUsdUJBQVUsRUFBRSw2QkFBYSxDQUFDO29CQUN4RixTQUFTLEVBQUcsQ0FBQyx5QkFBVyxDQUFDO29CQUN6QixTQUFTLEVBQUssQ0FBQyxXQUFXLENBQUM7aUJBQzNCLENBQUM7O3lCQUFBO1lBQ0YsaUNBQXlCLENBQUE7WUFFekIsaURBQXNCLEVBQUUsQ0FBQyxlQUFlLENBQUMsU0FBUyxDQUFDLENBQUMiLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vLyA8cmVmZXJlbmNlIHBhdGg9XCIuLi90eXBpbmdzL2luZGV4LmQudHNcIiAvPlxuXG5pbXBvcnQgeyBwbGF0Zm9ybUJyb3dzZXJEeW5hbWljIH0gICBmcm9tIFwiQGFuZ3VsYXIvcGxhdGZvcm0tYnJvd3Nlci1keW5hbWljXCI7XG5pbXBvcnQge0NvbXBvbmVudH0gICAgICAgICAgICAgICAgICBmcm9tIFwiQGFuZ3VsYXIvY29yZVwiO1xuaW1wb3J0IHsgQnJvd3Nlck1vZHVsZSB9ICAgIFx0XHRmcm9tIFwiQGFuZ3VsYXIvcGxhdGZvcm0tYnJvd3NlclwiO1xuaW1wb3J0IHsgTmdNb2R1bGUgfSBcdFx0XHRcdGZyb20gXCJAYW5ndWxhci9jb3JlXCI7XG5pbXBvcnQgeyBGb3Jtc01vZHVsZSB9ICAgXHRcdFx0ZnJvbSBcIkBhbmd1bGFyL2Zvcm1zXCI7XG5pbXBvcnQge0h0dHBNb2R1bGV9IFx0XHRcdFx0ZnJvbSBcIkBhbmd1bGFyL2h0dHBcIjtcblxuaW1wb3J0IHsgQ29tcE11bHRpbWVkaWFNYW5hZ2VyIH0gXHRmcm9tIFwiLi9Db21wb25lbnRzL20xbS1tdWx0aW1lZGlhLW1hbmFnZXJcIjtcbmltcG9ydCB7IENvbXBNZWRpYSB9IFx0XHRcdFx0ZnJvbSBcIi4vQ29tcG9uZW50cy9tMW0tbWVkaWFcIjtcbmltcG9ydCB7IENvbXBTZXJ2ZXIgfSBcdFx0XHRcdGZyb20gXCIuL0NvbXBvbmVudHMvbTFtLXNlcnZlclwiO1xuaW1wb3J0IHsgQ29tcERpcmVjdG9yeSB9IFx0XHRcdFx0ZnJvbSBcIi4vQ29tcG9uZW50cy9tMW0tZGlyZWN0b3J5XCI7XG5pbXBvcnQge0NvbW1TZXJ2aWNlfSBmcm9tIFwiLi9TZXJ2aWNlcy9Db21tU2VydmljZVwiO1xuXG5AQ29tcG9uZW50KHtcblx0c2VsZWN0b3JcdDogXCJyb290LW1hbmFnZXJcIixcblx0dGVtcGxhdGVcdDogYDxjb21wLW11bHRpbWVkaWEtbWFuYWdlciB0aXRsZT1cIkdlc3Rpb24gZGVzIHNlcnZpY2VzIFVQblAvRExOQVwiPjwvY29tcC1tdWx0aW1lZGlhLW1hbmFnZXI+XG5cdFx0XHRcdCAgYFxufSlcbmNsYXNzIFJvb3RNYW5hZ2VyIHtcbn1cblxuLy9lbmFibGVQcm9kTW9kZSgpO1xuQE5nTW9kdWxlKHtcblx0aW1wb3J0cyAgICAgOiBbQnJvd3Nlck1vZHVsZSwgRm9ybXNNb2R1bGUsIEh0dHBNb2R1bGVdLFxuXHRkZWNsYXJhdGlvbnM6IFtSb290TWFuYWdlciwgQ29tcE11bHRpbWVkaWFNYW5hZ2VyLCBDb21wTWVkaWEsIENvbXBTZXJ2ZXIsIENvbXBEaXJlY3RvcnldLFxuXHRwcm92aWRlcnNcdDogW0NvbW1TZXJ2aWNlXSxcblx0Ym9vdHN0cmFwICAgOiBbUm9vdE1hbmFnZXJdXG59KVxuZXhwb3J0IGNsYXNzIEFwcE1vZHVsZSB7fVxuXG5wbGF0Zm9ybUJyb3dzZXJEeW5hbWljKCkuYm9vdHN0cmFwTW9kdWxlKEFwcE1vZHVsZSk7XG4iXSwic291cmNlUm9vdCI6IiJ9

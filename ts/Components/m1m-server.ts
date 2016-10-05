@@ -8,17 +8,20 @@ const htmlTemplate = `
             <div style="display: inline-block;"><i class="fa fa-server fa-2x" aria-hidden="true"></i></div>
             <div *ngIf="menuDisplayed" style="display: inline-block;">
                 <div style="max-width: 300px; overflow: hidden; display: inline-block;">{{nf.name}}</div>
-                <div *ngIf="crossDisplayed" style="display: inline-block;"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
+                <div *ngIf="crossDisplayed" style="display: inline-block;">
+                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </div>
             </div>
         </div>
-        <div *ngIf="displayed" style="border: white solid 1px;"><m1m-directory [nf]="folder" *ngFor="let folder of directories"></m1m-directory></div>
+        <div *ngIf="displayed" style="border: white solid 1px;">
+            <m1m-directory [nf]="folder" *ngFor="let folder of directories"></m1m-directory>
+        </div>
     </div>
 `;
 
 @Component({
     selector		: "m1m-server",
-    template		: htmlTemplate,
-    providers       : [CommService]
+    template		: htmlTemplate
 })
 
 export class CompServer implements OnInit {
