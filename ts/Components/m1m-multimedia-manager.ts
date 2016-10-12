@@ -3,21 +3,16 @@ import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Servi
 
 const htmlTemplate = `
     <div class="row fullWidth" style="height: 100%;">
-        <div class="shrink columns" style="background-color: black; height: 100%; color:white;">
-            <div class="">
-                <div>
-                    <div class="paddingIconMenu">
-                        <div style="display: inline-block;" (click)="menuClick()">
-                            <div style="display: inline-block;">
-                                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-                            </div>
-                            <div *ngIf="menuDisplayed" style="display: inline-block;">Menu</div>
-                        </div>
-                    </div>
+        <!--MENU-->
+        <div class="shrink columns" id="menu">
+            <div class="hamburger paddingIconMenu">
+                <div (click)="menuClick()">
+                     <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+                    <div class="labelHamburger" *ngIf="menuDisplayed">Menu</div>
                 </div>
             </div>
             <hr/>
-            <div class="" style="height: 60%; color:white; overflow: hidden;">
+            <div class="listServers">
                 <div>
                     <m1m-server *ngFor="let server of mediaServers" 
                                 [nf]="server" 
@@ -27,19 +22,30 @@ const htmlTemplate = `
                 </div>
             </div>
             <hr/>
-            <div class="" style="max-height: 20%; color:white;">
+            <div class="footerMenu">
                 <div class="paddingIconMenu">
-                    <div style="display: inline-block;"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></div>
-                    <div *ngIf="menuDisplayed" style="display: inline-block;">Paramètres</div>
+                    <div><i class="fa fa-cog fa-2x" aria-hidden="true"></i></div>
+                    <div *ngIf="menuDisplayed">Paramètres</div>
                 </div>
                 <div class="paddingIconMenu">
-                    <div style="display: inline-block;"><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></div>
-                    <div *ngIf="menuDisplayed" style="display: inline-block;">En cours</div>
+                    <div><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></div>
+                    <div *ngIf="menuDisplayed">En cours</div>
                 </div>
             </div>
         </div>
-        <div class="columns background" style="background-color: darkgray; height: 100%;">
-            Content
+        <!--MAIN-->
+        <div class="columns" id="main">
+            <div class="filter">
+                <div id="header">
+                    Header
+                </div>
+                <div id="content">
+                    Content
+                </div>
+                <div id="footer">
+                    Footer
+                </div>
+            </div>
         </div>
     </div>
 `;

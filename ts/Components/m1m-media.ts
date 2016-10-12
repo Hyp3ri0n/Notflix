@@ -20,6 +20,6 @@ export class CompMedia {
     @Input() nf : Media;
     //constructor() {}
     displayLongDescription() {
-        console.log( "Descirption du média:", this.nf.longdescription );
+        console.log( "Description du média:", this.nf.longdescription );
     }
 };
