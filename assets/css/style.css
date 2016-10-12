@@ -28,29 +28,53 @@ h1 {
     color:white;
 }
 
-.paddingIconMenu {
+#menu .paddingIconMenu {
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
-.paddingIconMenu div {
+#menu .paddingIconMenu div {
     display: inline-block;
 }
 
-.hamburger {
+#menu .hamburger {
     height: auto; /*a revoir*/
 }
 
-.hamburger .fa-bars, .hamburger .labelHamburger {
+#menu .hamburger .fa-bars, .hamburger .labelHamburger {
     vertical-align: middle;
 }
 
-.listServers {
+#menu .listServers {
     height: 75%;
     overflow: hidden;
 }
 
-.footerMenu {
+#menu .m1m-server {
+    display: block;
+    padding-bottom: 10px;
+}
+
+#menu .itemServer {
+    display: block;
+}
+
+#menu .itemServer .labelServer {
+    max-width: 300px;
+    overflow: hidden;
+}
+
+#menu .listDirectories {
+    padding-left: 10px;
+}
+
+#menu .listDirectories m1m-directory {
+    display: block;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+#menu .footerMenu {
     height: 15%;
 }
 

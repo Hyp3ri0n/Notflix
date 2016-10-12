@@ -3,10 +3,8 @@ import { Component, Input 	} from "@angular/core";
 import { Directory } from "../Services/CommService";
 
 const htmlTemplate = `
-	<div (click)="itemClick()">
-        <i class="fa fa-folder-o" aria-hidden="true"></i>
-        {{nf.name}}
-	</div>
+    <i (click)="itemClick()" class="fa fa-folder-o" aria-hidden="true"></i>
+    {{nf.name}}
 `;
 
 @Component({

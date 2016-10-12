@@ -13,13 +13,11 @@ const htmlTemplate = `
             </div>
             <hr/>
             <div class="listServers">
-                <div>
-                    <m1m-server *ngFor="let server of mediaServers" 
-                                [nf]="server" 
-                                [menuDisplayed]="menuDisplayed" 
-                                [crossDisplayed]="currentServer != null">
-                    </m1m-server>
-                </div>
+                <m1m-server *ngFor="let server of mediaServers" 
+                            [nf]="server" 
+                            [menuDisplayed]="menuDisplayed" 
+                            [crossDisplayed]="currentServer != null">
+                </m1m-server>
             </div>
             <hr/>
             <div class="footerMenu">
