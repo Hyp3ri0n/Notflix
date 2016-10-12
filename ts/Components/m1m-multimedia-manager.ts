@@ -93,9 +93,10 @@ export class CompMultimediaManager {
     @Input() title	: string;
     mediaRenderers  : MediaRenderer[];
     mediaServers    : MediaServer  [];
-    currentServer    : MediaServer = null;
+    currentServer   : MediaServer = null;
     medias          : Media[] = [];
     menuDisplayed   : boolean = false;
+
     constructor(private comm: CommService) {
         console.log( "CommService:", comm);
         comm.init().subscribe( (data: DataInit) => {
@@ -115,5 +116,11 @@ export class CompMultimediaManager {
     menuClick() {
         this.menuDisplayed = !this.menuDisplayed;
         console.log(this.menuDisplayed);
+    }
+
+    selectedServer(event) {
+        console.log("Event from server, server : ", event);
+        this.currentServer = this.currentServer === null ? event : null;
+        console.log("currentServer : ", this.currentServer);
     }
 };

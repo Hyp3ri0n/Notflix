@@ -15,6 +15,6 @@ const htmlTemplate = `
 export class CompDirectory {
     @Input() nf : Directory;
     itemClick() {
-        console.log(this.nf.name);
+        console.log(this.nf);
     }
 };

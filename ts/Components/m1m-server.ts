@@ -26,7 +26,7 @@ export class CompServer implements OnInit {
     @Input() nf             : MediaServer;
     @Input() menuDisplayed  : boolean;
     @Input() crossDisplayed : boolean;
-    @Output() selectedServer = new EventEmitter();
+    @Output() selectedServer: EventEmitter<{}> = new EventEmitter();
     displayed               : boolean = false;
     directories             : Directory[];
     constructor( private cs : CommService ) {
@@ -40,5 +40,6 @@ export class CompServer implements OnInit {
     }
     showInfo() {
         this.displayed = !this.displayed;
+        this.selectedServer.emit({value: this.nf});
     }
 };
