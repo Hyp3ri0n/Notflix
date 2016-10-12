@@ -1,53 +1,6 @@
 import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
-const htmlTemplate = `
-    <div class="row fullPage">
-        <!--MENU-->
-        <div class="shrink columns" id="menu">
-            <div class="hamburger paddingIconMenu">
-                <div (click)="menuClick()">
-                     <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-                    <div class="labelHamburger" *ngIf="menuDisplayed">Menu</div>
-                </div>
-            </div>
-            <hr/>
-            <div class="listServers">
-                <m1m-server *ngFor="let server of mediaServers" 
-                            [nf]="server" 
-                            [menuDisplayed]="menuDisplayed" 
-                            [crossDisplayed]="currentServer != null">
-                </m1m-server>
-            </div>
-            <hr/>
-            <div class="footerMenu">
-                <div class="paddingIconMenu">
-                    <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
-                    <div *ngIf="menuDisplayed">Paramètres</div>
-                </div>
-                <div class="paddingIconMenu">
-                    <i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i>
-                    <div *ngIf="menuDisplayed">En cours</div>
-                </div>
-            </div>
-        </div>
-        <!--MAIN-->
-        <div class="columns" id="main">
-            <div class="filter">
-                <div id="header">
-                    Header
-                </div>
-                <div id="content">
-                    Content
-                </div>
-                <div id="footer">
-                    Footer
-                </div>
-            </div>
-        </div>
-    </div>
-`;
-
 /*
  <h1>Composant de gestion des ressources multimédias</h1>
  <hr/>
@@ -85,7 +38,7 @@ const htmlTemplate = `
 
 @Component({
     selector		: "comp-multimedia-manager",
-    template		: htmlTemplate
+    templateUrl     : "./Views/m1m-multimedia-manager.html"
 })
 export class CompMultimediaManager {
     @Input() title	: string;

@@ -2,25 +2,10 @@
 import {Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 import {MediaServer, CommService, DataBrowse, Directory} from "../Services/CommService";
 
-const htmlTemplate = `
-    <div class="paddingIconMenu">
-        <div class="itemServer" (click)="showInfo()">
-            <i class="fa fa-server fa-2x" aria-hidden="true"></i>
-            <div *ngIf="menuDisplayed">
-                <div class="labelServer">{{nf.name}}</div>
-                <i *ngIf="crossDisplayed" class="fa fa-times fa-2x" aria-hidden="true"></i>
-            </div>
-        </div>
-        <div class="listDirectories" *ngIf="displayed">
-        <div *ngIf="displayed">
-            <m1m-directory [nf]="folder" *ngFor="let folder of directories"></m1m-directory>
-        </div>
-    </div>
-`;
 
 @Component({
     selector		: "m1m-server",
-    template		: htmlTemplate
+    templateUrl     : "./Views/m1m-server.html"
 })
 
 export class CompServer implements OnInit {

@@ -2,14 +2,10 @@
 import { Component, Input, OnInit	} from "@angular/core";
 import {Directory, CommService, DataBrowse, Media} from "../Services/CommService";
 
-const htmlTemplate = `
-    <i (click)="itemClick()" class="fa fa-folder-o" aria-hidden="true"></i>
-    {{nf.name}}
-`;
 
 @Component({
     selector		: "m1m-directory",
-    template		: htmlTemplate
+    templateUrl     : "./Views/m1m-directory.html"
 })
 
 export class CompDirectory implements OnInit{

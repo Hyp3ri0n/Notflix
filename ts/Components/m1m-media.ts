@@ -4,16 +4,10 @@
 import { Component, Input 	} from "@angular/core";
 import { Media} from "../Services/CommService";
 
-const htmlTemplate = `
-	<p (click)="displayLongDescription()">
-	    le titre: {{nf.title}}
-	</p>
-`;
 
 @Component({
     selector		: "m1m-media",
-    template		: htmlTemplate,
-    providers       : []
+    templateUrl     : "./Views/m1m-media.html"
 })
 
 export class CompMedia {
