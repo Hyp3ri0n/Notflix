@@ -2,7 +2,7 @@ import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
 const htmlTemplate = `
-    <div class="row fullWidth" style="height: 100%;">
+    <div class="row fullPage">
         <!--MENU-->
         <div class="shrink columns" id="menu">
             <div class="hamburger paddingIconMenu">
@@ -22,13 +22,11 @@ const htmlTemplate = `
             <hr/>
             <div class="footerMenu">
                 <div class="paddingIconMenu">
-                    <div><i class="fa fa-cog fa-2x" aria-hidden="true"></i></div>
+                    <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
                     <div *ngIf="menuDisplayed">Paramètres</div>
                 </div>
                 <div class="paddingIconMenu">
-                    <div>
-                        <i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i>
-                    </div>
+                    <i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i>
                     <div *ngIf="menuDisplayed">En cours</div>
                 </div>
             </div>

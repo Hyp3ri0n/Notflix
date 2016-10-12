@@ -10,8 +10,9 @@ const htmlTemplate = `
                 <div class="labelServer">{{nf.name}}</div>
                 <i *ngIf="crossDisplayed" class="fa fa-times fa-2x" aria-hidden="true"></i>
             </div>
+        </div>
         <div class="listDirectories" *ngIf="displayed">
-        <div *ngIf="displayed" style="border: white solid 1px;">
+        <div *ngIf="displayed">
             <m1m-directory [nf]="folder" *ngFor="let folder of directories"></m1m-directory>
         </div>
     </div>
