@@ -28,7 +28,9 @@ const htmlTemplate = `
                     <div *ngIf="menuDisplayed">Paramètres</div>
                 </div>
                 <div class="paddingIconMenu">
-                    <div><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></div>
+                    <div>
+                        <i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i>
+                    </div>
                     <div *ngIf="menuDisplayed">En cours</div>
                 </div>
             </div>
