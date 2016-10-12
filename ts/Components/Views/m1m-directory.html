@@ -1,4 +1,5 @@
 <div (click)="itemClick()">
     <i class="fa fa-folder-o" aria-hidden="true"></i>
     {{nf.name}}
+    <m1m-directory [nf]="directory" [hidden]="open == false" *ngFor="let directory of directories"></m1m-directory>
 </div>
