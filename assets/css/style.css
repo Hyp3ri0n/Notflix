@@ -1,3 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+    font-size: 14px;
+}
+
+/* Classes génériques */
+
 .fullWidth {
     width: 100%;
     margin-left: auto;
@@ -5,15 +14,82 @@
     max-width: initial !important;
 }
 
-.background {
-    background-image: url("http://tharringtonsmith.com/wp-content/uploads/2014/08/blur-background12.jpg");
-    width: 100%;
+h1 {
+    text-align: center;
+}
+
+/************************/
+/******** MENU **********/
+/************************/
+
+#menu {
+    background-color: black;
     height: 100%;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    color:white;
 }
 
 .paddingIconMenu {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.paddingIconMenu div {
+    display: inline-block;
+}
+
+.hamburger {
+    height: auto; /*a revoir*/
+}
+
+.hamburger .fa-bars, .hamburger .labelHamburger {
+    vertical-align: middle;
+}
+
+.listServers {
+    height: 75%;
+    overflow: hidden;
+}
+
+.footerMenu {
+    height: 15%;
+}
+
+/************************/
+/******** MAIN **********/
+/************************/
+
+#main {
+    background-image: url("http://tharringtonsmith.com/wp-content/uploads/2014/08/blur-background12.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 0;
+    color : whitesmoke;
+}
+
+.filter {
+    background-color: rgba(119,136,153,0.3);
+    width: 100%;
+    height: 100%;
+}
+
+#header, #content, #footer {
+    padding: 10px;
+    margin: 0 20px;
+}
+
+#header {
+    height: 15%;
+    border-bottom: whitesmoke 1px dashed;
+}
+
+#content {
+    overflow: auto;
+    height: 70%;
+    border-bottom: whitesmoke 1px dashed;
+}
+
+#footer {
+    height: 15%;
 }
