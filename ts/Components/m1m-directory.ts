@@ -20,6 +20,6 @@ export class CompDirectory implements OnInit{
         });
     }
     itemClick() {
-        console.log(this.nf);
+        console.log(this.medias);
     }
 };

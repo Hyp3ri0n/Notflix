@@ -12,6 +12,7 @@
             <m1m-server *ngFor="let server of mediaServers"
                         [nf]="server"
                         [menuDisplayed]="menuDisplayed"
+                        (selectedServer)="selectedServer($event)"
                         [crossDisplayed]="currentServer != null">
             </m1m-server>
         </div>
