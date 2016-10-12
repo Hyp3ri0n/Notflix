@@ -11,9 +11,8 @@ import {MediaServer, CommService, DataBrowse, Directory} from "../Services/CommS
 export class CompServer implements OnInit {
     @Input() nf             : MediaServer;
     @Input() menuDisplayed  : boolean;
-    @Input() crossDisplayed : boolean;
-    @Output() selectedServer: EventEmitter<{}> = new EventEmitter();
-    displayed               : boolean = false;
+    @Input() serverSelected : boolean;
+    @Output() eventSelectedServer: EventEmitter<{}> = new EventEmitter();
     directories             : Directory[];
     constructor( private cs : CommService ) {
         console.log( "CommService:", cs );
@@ -24,8 +23,7 @@ export class CompServer implements OnInit {
             console.log( "new directories:", data.directories );
         } );
     }
-    showInfo() {
-        this.displayed = !this.displayed;
-        this.selectedServer.emit({value: this.nf});
+    showDirectories() {
+        this.eventSelectedServer.emit({value: this.nf});
     }
 };

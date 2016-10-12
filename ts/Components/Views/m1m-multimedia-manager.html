@@ -8,11 +8,20 @@
             </div>
         </div>
         <div class="listServers">
-            <m1m-server *ngFor="let server of mediaServers"
+            <!-- Affichage de tous les serveurs si aucun sélectionné -->
+            <m1m-server [hidden]="currentServer != null"
+                        *ngFor="let server of mediaServers"
                         [nf]="server"
                         [menuDisplayed]="menuDisplayed"
-                        (selectedServer)="selectedServer($event)"
-                        [crossDisplayed]="currentServer != null">
+                        (eventSelectedServer)="selectedServer($event)"
+                        [serverSelected]="false">
+            </m1m-server>
+            <!-- Affichage du serveur sélectionné -->
+            <m1m-server *ngIf="currentServer != null"
+                        [nf]="currentServer"
+                        [menuDisplayed]="menuDisplayed"
+                        (eventSelectedServer)="selectedServer($event)"
+                        [serverSelected]="true">
             </m1m-server>
         </div>
         <div class="footerMenu">
