@@ -4,16 +4,15 @@ import {MediaServer, CommService, DataBrowse, Directory} from "../Services/CommS
 
 const htmlTemplate = `
     <div class="paddingIconMenu">
-        <div (click)="showInfo()">
-            <div style="display: inline-block;"><i class="fa fa-server fa-2x" aria-hidden="true"></i></div>
-            <div *ngIf="menuDisplayed" style="display: inline-block;">
-                <div style="max-width: 300px; overflow: hidden; display: inline-block;">{{nf.name}}</div>
-                <div *ngIf="crossDisplayed" style="display: inline-block;">
-                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>
-                </div>
+        <div class="itemServer" (click)="showInfo()">
+            <i class="fa fa-server fa-2x" aria-hidden="true"></i>
+            <div *ngIf="menuDisplayed">
+                <div class="labelServer">{{nf.name}}</div>
+                <i *ngIf="crossDisplayed" class="fa fa-times fa-2x" aria-hidden="true"></i>
             </div>
         </div>
-        <div *ngIf="displayed" style="border: white solid 1px;">
+        <div class="listDirectories" *ngIf="displayed">
+        <div *ngIf="displayed">
             <m1m-directory [nf]="folder" *ngFor="let folder of directories"></m1m-directory>
         </div>
     </div>
