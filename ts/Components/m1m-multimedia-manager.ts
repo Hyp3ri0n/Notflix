@@ -38,7 +38,7 @@ import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Servi
 
 @Component({
     selector		: "comp-multimedia-manager",
-    templateUrl     : "./Views/m1m-multimedia-manager.html"
+    templateUrl     : "ts/Components/Views/m1m-multimedia-manager.html"
 })
 export class CompMultimediaManager {
     @Input() title	: string;

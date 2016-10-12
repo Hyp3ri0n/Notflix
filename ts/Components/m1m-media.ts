@@ -7,7 +7,7 @@ import { Media} from "../Services/CommService";
 
 @Component({
     selector		: "m1m-media",
-    templateUrl     : "./Views/m1m-media.html"
+    templateUrl     : "ts/Components/Views/m1m-media.html"
 })
 
 export class CompMedia {

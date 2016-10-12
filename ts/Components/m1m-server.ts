@@ -5,7 +5,7 @@ import {MediaServer, CommService, DataBrowse, Directory} from "../Services/CommS
 
 @Component({
     selector		: "m1m-server",
-    templateUrl     : "./Views/m1m-server.html"
+    templateUrl     : "ts/Components/Views/m1m-server.html"
 })
 
 export class CompServer implements OnInit {

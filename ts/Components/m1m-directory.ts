@@ -5,7 +5,7 @@ import {Directory, CommService, DataBrowse, Media} from "../Services/CommService
 
 @Component({
     selector		: "m1m-directory",
-    templateUrl     : "./Views/m1m-directory.html"
+    templateUrl     : "ts/Components/Views/m1m-directory.html"
 })
 
 export class CompDirectory implements OnInit{
