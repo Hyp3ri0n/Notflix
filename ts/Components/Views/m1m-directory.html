@@ -1,5 +1,7 @@
 <div (click)="itemClick()">
-    <i class="fa fa-folder-o" aria-hidden="true"></i>
-    {{nf.name}}
-    <m1m-directory [nf]="directory" [hidden]="open == false" *ngFor="let directory of directories"></m1m-directory>
+    <i class="fa fa-folder-o" aria-hidden="true" *ngIf="open == false"></i>
+    <i class="fa fa-folder-open-o" aria-hidden="true" *ngIf="open == true"></i>
+    {{renderer.name}}
+    <m1m-directory [nf]="directory" *ngFor="let directory of directories"></m1m-directory>
+    <m1m-media [nf]="media" *ngFor="let media of medias"></m1m-media>
 </div>

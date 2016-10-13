@@ -9,11 +9,12 @@ import {MediaServer, CommService, DataBrowse, Directory} from "../Services/CommS
 })
 
 export class CompServer implements OnInit {
-    @Input() nf             : MediaServer;
-    @Input() menuDisplayed  : boolean;
-    @Input() serverSelected : boolean;
-    @Output() eventSelectedServer: EventEmitter<{}> = new EventEmitter();
-    directories             : Directory[];
+    @Input() nf                     : MediaServer;
+    @Input() menuDisplayed          : boolean;
+    @Input() serverSelected         : boolean;
+    @Output() eventSelectedServer   : EventEmitter<{}> = new EventEmitter();
+    directories                     : Directory[];
+
     constructor( private cs : CommService ) {
         console.log( "CommService:", cs );
     }

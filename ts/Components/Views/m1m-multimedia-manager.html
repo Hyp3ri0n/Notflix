@@ -42,7 +42,10 @@
                 Header
             </div>
             <div id="content">
-                Content
+                <m1m-lecteur *ngFor="let val of mediaRenderers"
+                             [renderer]="val">
+                </m1m-lecteur>
+                <!--Content-->
             </div>
             <div id="footer">
                 Footer

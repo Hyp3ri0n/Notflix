@@ -10,22 +10,20 @@ import {Directory, CommService, DataBrowse, Media} from "../Services/CommService
 
 export class CompDirectory {
     @Input() nf : Directory;
-    medias      : Media[];
-    directories : Directory[];
-    open        : boolean = false;
+    medias      : Media[]       = [];
+    directories : Directory[]   = [];
+    open        : boolean = true;
     constructor(private cs : CommService) {
 
     }
 
     itemClick() {
-        this.open = !this.open;
+        //this.open = !this.open;
         if(this.open) {
             this.cs.browse(this.nf.serverId, this.nf.directory).then((data: DataBrowse) => {
                 this.directories = data.directories;
                 this.medias = data.medias;
             });
         }
-
-        console.log(this.open);
     }
 };
