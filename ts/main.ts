@@ -10,8 +10,9 @@ import {HttpModule} 				from "@angular/http";
 import { CompMultimediaManager } 	from "./Components/m1m-multimedia-manager";
 import { CompMedia } 				from "./Components/m1m-media";
 import { CompServer } 				from "./Components/m1m-server";
-import { CompDirectory } 				from "./Components/m1m-directory";
-import {CommService} from "./Services/CommService";
+import { CompDirectory } 			from "./Components/m1m-directory";
+import { CompLecteur } 				from "./Components/m1m-lecteur";
+import { CommService } 				from "./Services/CommService";
 
 @Component({
 	selector	: "root-manager",
@@ -24,7 +25,7 @@ class RootManager {
 //enableProdMode();
 @NgModule({
 	imports     : [BrowserModule, FormsModule, HttpModule],
-	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer, CompDirectory],
+	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer, CompDirectory, CompLecteur],
 	providers	: [CommService],
 	bootstrap   : [RootManager]
 })
