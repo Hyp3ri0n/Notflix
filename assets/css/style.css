@@ -13,6 +13,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     max-width: initial !important;
+    color : white;
 
     position: absolute;
     left:0;
@@ -63,7 +64,7 @@ h1 {
     padding-bottom: 5px;
 }
 
-#menu .paddingIconMenu div {
+#menu .footerMenu .paddingIconMenu div, #menu .hamburger .paddingIconMenu div, #menu .itemServer > div, #menu .itemServer .labelServer{
     display: inline-block;
 }
 
@@ -104,7 +105,6 @@ h1 {
 }
 
 #menu .itemServer {
-    display: block !important;
     cursor: pointer;
 }
 
@@ -123,12 +123,24 @@ h1 {
     cursor: pointer;
 }
 
+#menu .listDirectories m1m-directory .parentItem{
+
+}
+
+#menu .listDirectories m1m-directory .subItem {
+    padding-left: 10px;
+}
+
 #menu .footerMenu {
     height: 20%;
 }
 
 #menu .footerMenu .paddingIconMenu {
     cursor : pointer;
+}
+
+#menu .footerMenu .paddingIconMenu * {
+    vertical-align: middle;
 }
 
 #menu .footerMenu , #menu .listServers, #menu .hamburger {
