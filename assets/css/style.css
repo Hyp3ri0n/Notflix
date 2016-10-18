@@ -21,28 +21,22 @@ body {
 }
 
 .fullPageBackground {
-    background: url("../images/theend.png") no-repeat center center fixed;
+    background: url("../images/deserttemple.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: blur(10px);
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
 
-    position: absolute;
-    left:0;
-    top: 0;
-
+    position: fixed;
+    transform: scale(1.1);
     width: 100%;
     height: 100%;
-
-    /*padding: 20px;
-
-    overflow: hidden;*/
 }
 
 h1 {
@@ -69,7 +63,7 @@ h1 {
 }
 
 #menu .hamburger {
-    height: 10%;
+    height: 8%;
     border-bottom: white 1px solid;
     cursor: pointer;
 }
@@ -177,7 +171,7 @@ h1 {
 }
 
 #header {
-    height: 10%;
+    height: 8%;
     border-bottom: whitesmoke 1px dashed;
 }
 
