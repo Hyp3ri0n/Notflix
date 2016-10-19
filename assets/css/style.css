@@ -21,7 +21,7 @@ body {
 }
 
 .fullPageBackground {
-    background: url("../images/deserttemple.png") no-repeat center center fixed;
+    background: url("../images/theend.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -47,101 +47,125 @@ h1 {
 /******** MENU **********/
 /************************/
 
-#menu {
+.shrink {
     background-color: rgba(30,30,30,0.65);
     height: 100%;
     color:white;
 }
 
-#menu .paddingIconMenu {
+#mainMenu .paddingIconMenu {
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
-#menu .footerMenu .paddingIconMenu div, #menu .hamburger .paddingIconMenu div, #menu .itemServer > div, #menu .itemServer .labelServer{
+#mainMenu .footerMenu .paddingIconMenu div, #mainMenu .hamburger .paddingIconMenu div, #mainMenu .itemServer > div, #mainMenu .itemServer .labelServer{
     display: inline-block;
 }
 
-#menu .hamburger {
+#mainMenu .hamburger {
     height: 8%;
     border-bottom: white 1px solid;
     cursor: pointer;
 }
 
-#menu .hamburger > div {
+#mainMenu .hamburger > div {
     align-items: center;
     display: flex;
     height: 100%;
 }
 
-#menu .hamburger .fa-bars, .hamburger .labelHamburger {
+#mainMenu .hamburger .fa-bars, .hamburger .labelHamburger {
     vertical-align: middle;
     display: inline-block;
 }
 
-#menu .hamburger .fa-bars {
+#mainMenu .hamburger .fa-bars {
     padding-left: 1px;
 }
 
-#menu .hamburger .labelHamburger {
+#mainMenu .hamburger .labelHamburger {
     padding-left: 5px;
 }
 
-#menu .listServers {
+#mainMenu .listServers {
     height: 70%;
-    overflow: hidden;
     border-bottom: white 1px solid;
 }
 
-#menu .m1m-server {
+#mainMenu .listServers .paddingIconMenu.solo {
+    overflow-y: auto;
+    height: 100%;
+    padding-right: 15px;
+}
+
+/*Scroll menu*/
+#mainMenu .listServers .paddingIconMenu::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(75,75,75,0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(10,0,0,0.5);
+}
+
+#mainMenu .listServers .paddingIconMenu::-webkit-scrollbar {
+    width: 3px;
+}
+
+#mainMenu .listServers .paddingIconMenu::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+#mainMenu .m1m-server {
     display: block;
     padding-bottom: 10px;
 }
 
-#menu .itemServer {
+#mainMenu .itemServer {
     cursor: pointer;
 }
 
-#menu .itemServer .labelServer {
+#mainMenu .itemServer .labelServer {
     max-width: 300px;
     overflow: hidden;
 }
 
-#menu .listDirectories {
+#mainMenu .listDirectories {
     padding-left: 10px;
 }
 
-#menu .listDirectories m1m-directory {
+#mainMenu .listDirectories m1m-directory {
     display: block;
     padding: 5px 0;
     cursor: pointer;
 }
 
-#menu .listDirectories m1m-directory .parentItem{
+/*#mainMenu .listDirectories m1m-directory .parentItem{
 
-}
+}*/
 
-#menu .listDirectories m1m-directory .subItem {
+#mainMenu .listDirectories m1m-directory .subItem {
     padding-left: 10px;
 }
 
-#menu .footerMenu {
+#mainMenu .footerMenu {
     height: 20%;
 }
 
-#menu .footerMenu .paddingIconMenu {
+#mainMenu .footerMenu .paddingIconMenu {
     cursor : pointer;
 }
 
-#menu .footerMenu .paddingIconMenu * {
+#mainMenu .footerMenu .paddingIconMenu * {
     vertical-align: middle;
 }
 
-#menu .footerMenu , #menu .listServers, #menu .hamburger {
+#mainMenu .footerMenu , #mainMenu .listServers, #mainMenu .hamburger {
     padding: 10px 0;
 }
 
-#menu .fa-play-circle-o {
+#mainMenu .fa-play-circle-o {
  /*TODO*/
 }
 
@@ -150,18 +174,10 @@ h1 {
 /************************/
 
 #main {
-    /*background-image: url("http://tharringtonsmith.com/wp-content/uploads/2014/08/blur-background12.jpg");*/
     width: 100%;
     height: 100%;
     padding: 0;
-    /*color : white;*/
-}
-
-.filter {
-    /*background-color: rgba(119,136,153,0.4);*/
-    /*background-color: rgba(0,0,0,0.2);*/
-    width: 100%;
-    height: 100%;
+    color : white;
 }
 
 #header, #content, #footer {

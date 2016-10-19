@@ -1,7 +1,7 @@
 <div class="fullPageBackground"></div>
 <div class="row fullPage">
     <!--MENU-->
-    <div class="shrink columns" id="menu">
+    <div class="shrink columns" id="mainMenu">
         <div class="hamburger">
             <div (click)="menuClick()">
                 <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
@@ -38,17 +38,18 @@
     </div>
     <!--MAIN-->
     <div class="columns" id="main">
-        <div class="filter">
-            <div id="header">
-                Header
-            </div>
-            <div id="content">
-                <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-                Content
-            </div>
-            <div id="footer">
-                Footer
-            </div>
+        <div id="header">
+            Header
         </div>
+        <div id="content">
+            <m1m-media-container [mediasList]="medias"></m1m-media-container>
+        </div>
+        <div id="footer">
+            Footer
+        </div>
+    </div>
+    <!--Menu lecteurs-->
+    <div class="shrink columns" id="secondaryMenu" hidden>
+        Menu lecteurs
     </div>
 </div>
