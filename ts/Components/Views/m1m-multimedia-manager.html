@@ -42,7 +42,9 @@
             Header
         </div>
         <div id="content">
-            <m1m-media-container [mediasList]="medias"></m1m-media-container>
+            <div *ngIf="true">
+                <m1m-media *ngFor="let media of this.comm.medias" [nf]="media"></m1m-media>
+            </div>
         </div>
         <div id="footer">
             Footer

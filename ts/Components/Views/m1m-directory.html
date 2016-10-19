@@ -1,9 +1,8 @@
 <div (click)="itemClick()" class="parentItem">
-    <i class="fa fa-caret-right" aria-hidden="true" *ngIf="open == false"></i>
-    <i class="fa fa-caret-down" aria-hidden="true" *ngIf="open == true"></i>
+    <i class="fa fa-caret-right" aria-hidden="true" *ngIf="!open"></i>
+    <i class="fa fa-caret-down" aria-hidden="true" *ngIf="open"></i>
     {{nf.name}}
 </div>
- <div class="subItem">
+ <div class="subItem" *ngIf="open">
      <m1m-directory [nf]="directory" *ngFor="let directory of directories"></m1m-directory>
-     <m1m-media [nf]="media" *ngFor="let media of medias"></m1m-media>
 </div>

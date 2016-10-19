@@ -49,11 +49,12 @@ export interface DataBrowse {
     directories     : Directory[];
     medias          : Media[];
     error           : string;
-};
+}
 
 let initDone = false;
 @Injectable()
 export class CommService {
+    medias          : Media[] = [];
     mediaRenderers  : MediaRenderer[] = [];
     mediaServers    : MediaServer  [] = [];
     onupdate        : (operation: string, type: string, brick: MediaRenderer | MediaServer) => void;
@@ -141,6 +142,8 @@ export class CommService {
                         directory   : container.getAttribute("id")} );
                 } // End of containers parsing
 
+                // Nettoyage des medias courants
+                this.medias = [];
                 // Parse item
                 for(let item of ResultDoc.querySelectorAll("item")) {
                     let node    : Node;
@@ -161,6 +164,7 @@ export class CommService {
                         ressource       : (node=item.querySelector("res"))?node.textContent:"",
                         classe          : (node=item.querySelector("class"))?node.textContent:""
                     } );
+                    this.medias = dataBrowse.medias;
                     for(let actor of item.querySelectorAll( "actor" )) {
                         media.actors.push( actor.textContent );
                     }
