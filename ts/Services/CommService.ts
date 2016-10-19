@@ -119,7 +119,7 @@ export class CommService {
     loadMedia(mediaRendererId: string, mediaServerId: string, itemId: string) : Promise<any> {
         return utils.call(mediaRendererId, "loadMedia", [mediaServerId, itemId]);
     }
-    browse(mediaServerId: string, directoryId: string = "0") : Promise<DataBrowse> {
+    browse(mediaServerId: string, directoryId: string = "0", withMedias: boolean = true) : Promise<DataBrowse> {
         return utils.call( mediaServerId, "Browse", [directoryId] ).then( (dataString) => {
             let dataBrowse : DataBrowse = {
                 parentDirectory : directoryId,
@@ -164,7 +164,11 @@ export class CommService {
                         ressource       : (node=item.querySelector("res"))?node.textContent:"",
                         classe          : (node=item.querySelector("class"))?node.textContent:""
                     } );
-                    this.medias = dataBrowse.medias;
+
+                    if(withMedias) {
+                        this.medias = dataBrowse.medias;
+                    }
+
                     for(let actor of item.querySelectorAll( "actor" )) {
                         media.actors.push( actor.textContent );
                     }

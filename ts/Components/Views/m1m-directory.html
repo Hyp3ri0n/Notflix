@@ -1,6 +1,6 @@
 <div (click)="itemClick()" class="parentItem">
-    <i class="fa fa-caret-right" aria-hidden="true" *ngIf="!open"></i>
-    <i class="fa fa-caret-down" aria-hidden="true" *ngIf="open"></i>
+    <i class="fa fa-caret-right" aria-hidden="true" *ngIf="!open && directories.length !== 0"></i>
+    <i class="fa fa-caret-down" aria-hidden="true" *ngIf="open && directories.length !== 0"></i>
     {{nf.name}}
 </div>
  <div class="subItem" *ngIf="open">
