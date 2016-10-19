@@ -51,7 +51,8 @@
         </div>
     </div>
     <!--Menu lecteurs-->
-    <div class="shrink columns" id="secondaryMenu" hidden>
+    <div class="shrink columns" id="secondaryMenu">
         Menu lecteurs
+        <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
     </div>
 </div>
