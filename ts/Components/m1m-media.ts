@@ -17,7 +17,6 @@ export class CompMedia {
     constructor(private comm : CommService) {
 
     }
-
     loadMedia() {
         // temporaire : permet de recuperer le lecteur de la machine
         this.comm.mediaRenderers.forEach((e) => {
@@ -26,7 +25,6 @@ export class CompMedia {
                 this.renderer = e;
             }
         });
-
         // permet de lancer le media sur le lecteur (ne fonctionne pas)
         if (this.renderer !== null) {
             this.comm.loadMedia(this.renderer.id, this.nf.serverId, this.nf.mediaId).then(() => {
