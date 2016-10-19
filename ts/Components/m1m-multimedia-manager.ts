@@ -1,6 +1,13 @@
 import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
+enum ContentDisplay {
+    HOME,
+    MEDIAS,
+    SETTING,
+    LECTEURS
+}
+
 @Component({
     selector		: "comp-multimedia-manager",
     templateUrl     : "ts/Components/Views/m1m-multimedia-manager.html"
