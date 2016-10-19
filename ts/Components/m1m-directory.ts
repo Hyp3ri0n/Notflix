@@ -1,5 +1,5 @@
 /** Commentaire **/
-import { Component, Input } from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {Directory, CommService, DataBrowse, Media} from "../Services/CommService";
 
 
@@ -9,10 +9,11 @@ import {Directory, CommService, DataBrowse, Media} from "../Services/CommService
 })
 
 export class CompDirectory {
-    @Input() nf : Directory;
-    medias      : Media[]       = [];
-    directories : Directory[]   = [];
-    open        : boolean = false;
+    @Input() nf         : Directory;
+    medias              : Media[];
+    directories         : Directory[]   = [];
+    open                : boolean       = false;
+
     constructor(private cs : CommService) {
 
     }

@@ -13,6 +13,7 @@ import { CompServer } 				from "./Components/m1m-server";
 import { CompDirectory } 			from "./Components/m1m-directory";
 import { CompLecteur } 				from "./Components/m1m-lecteur";
 import { CommService } 				from "./Services/CommService";
+import {CompContainerMedia} 		from "./Components/m1m-media-container";
 
 @Component({
 	selector	: "root-manager",
@@ -25,7 +26,7 @@ class RootManager {
 //enableProdMode();
 @NgModule({
 	imports     : [BrowserModule, FormsModule, HttpModule],
-	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer, CompDirectory, CompLecteur],
+	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer, CompDirectory, CompLecteur, CompContainerMedia],
 	providers	: [CommService],
 	bootstrap   : [RootManager]
 })

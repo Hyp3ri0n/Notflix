@@ -12,22 +12,27 @@ import {Media, CommService, MediaRenderer} from "../Services/CommService";
 
 export class CompMedia {
     @Input() nf : Media;
-    renderer    : MediaRenderer;
+    renderer    : MediaRenderer = null;
 
     constructor(private comm : CommService) {
 
     }
 
     loadMedia() {
+        // temporaire : permet de recuperer le lecteur de la machine
         this.comm.mediaRenderers.forEach((e) => {
-           if(e.name === "Kodi (F213-04)") {
-               this.renderer = e;
-           }
+            console.log(e);
+            if(e.name === "Kodi (f217-12)") {
+                this.renderer = e;
+            }
         });
 
-        this.comm.loadMedia(this.renderer.id, this.nf.serverId, this.nf.mediaId).then(() => {
-            this.comm.play(this.renderer.id);
-            console.log("Media played : ", this.nf.title, " on ", this.renderer.name);
-        });
+        // permet de lancer le media sur le lecteur (ne fonctionne pas)
+        if (this.renderer !== null) {
+            this.comm.loadMedia(this.renderer.id, this.nf.serverId, this.nf.mediaId).then(() => {
+                this.comm.play(this.renderer.id);
+                console.log("Media played : ", this.nf.title, " on ", this.renderer.name);
+            });
+        }
     }
 };

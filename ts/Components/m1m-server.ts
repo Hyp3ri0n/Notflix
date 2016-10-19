@@ -1,6 +1,6 @@
 /** Commentaire **/
-import {Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
-import {MediaServer, CommService, DataBrowse, Directory} from "../Services/CommService";
+import {Component, Input, OnInit, Output, EventEmitter, ElementRef} from "@angular/core";
+import {MediaServer, CommService, DataBrowse, Directory, Media} from "../Services/CommService";
 
 
 @Component({
@@ -13,9 +13,10 @@ export class CompServer implements OnInit {
     @Input() menuDisplayed          : boolean;
     @Input() serverSelected         : boolean;
     @Output() eventSelectedServer   : EventEmitter<{}> = new EventEmitter();
+    @Input() medias   : Media[];
     directories                     : Directory[];
 
-    constructor( private cs : CommService ) {
+    constructor( private cs : CommService, private element : ElementRef ) {
         console.log( "CommService:", cs );
     }
     ngOnInit(): void {
@@ -23,6 +24,10 @@ export class CompServer implements OnInit {
             this.directories = data.directories;
             console.log( "new directories:", data.directories );
         } );
+
+        if(this.serverSelected) {
+            this.element.nativeElement.children[0].classList.add("solo");
+        }
     }
     showDirectories() {
         this.eventSelectedServer.emit({value: this.nf});
