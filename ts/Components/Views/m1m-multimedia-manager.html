@@ -47,7 +47,7 @@
                     <h1>Bienvenue sur Notflix !</h1>
                     <h2>La contrefaçon lowcost de Netflix.</h2>
                 </div>
-                <div id="content">
+                <div id="content" class="h70">
                     <div class="descriptifProjet" style="width: 45%; border-right: solid 1px white; display: inline-block;">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce luctus massa est, in
                             dapibus augue efficitur ac. Donec sit amet lacus justo. Sed euismod sed diam vel scelerisque.
@@ -107,7 +107,7 @@
                 <div id="header">
                     Header
                 </div>
-                <div id="content">
+                <div id="content" class="h70">
                     <m1m-media *ngFor="let media of this.comm.medias" [nf]="media"></m1m-media>
                 </div>
                 <div id="footer">
@@ -120,7 +120,7 @@
                 <div id="header">
                     Header
                 </div>
-                <div id="content">
+                <div id="content" class="h70">
                     <h1>Settings</h1>
                 </div>
                 <div id="footer">
@@ -133,7 +133,7 @@
                 <div id="header">
                     Header
                 </div>
-                <div id="content">
+                <div id="content" class="h70">
                     <h1>Lecteurs</h1>
                 </div>
                 <div id="footer">
@@ -144,7 +144,10 @@
     </div>
     <!--Menu lecteurs-->
     <div class="shrink columns" id="secondaryMenu">
-        Menu lecteurs
-        <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+        <div class="listLecteurs">
+            <h3>Lecteurs</h3>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+        </div>
+        <div class="slideArrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>
     </div>
 </div>

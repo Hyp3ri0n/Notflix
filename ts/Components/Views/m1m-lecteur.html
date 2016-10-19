@@ -1,12 +1,13 @@
-<div style="background-color: red; height: 50px; margin-top: 10px;"
+<div class="lecteurItemMenu"
      alx-dropzone
      (alx-ondrop)="loadAndPlay($event)"
      alx-dragstart-css="canDrop"
      alx-draghover-css="dropOver"
      [alx-accept-fct]="isMedia"
 >
-    {{nf.name}}
-    <img src="{{nf.iconURL}}"/>
+    <!--<img src="{{nf.iconURL}}"/>-->
+    <img src="assets/images/b.jpg"/>
+    <div class="labelLecteur">{{nf.name}}</div>
     <button (click)="play()">PLAY</button>
     <button (click)="pause()">PAUSE</button>
     <button (click)="stop()">STOP</button>
