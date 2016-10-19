@@ -27,11 +27,11 @@ body {
     -o-background-size: cover;
     background-size: cover;
 
-    -webkit-filter: blur(20px);
-    -moz-filter: blur(20px);
-    -o-filter: blur(20px);
-    -ms-filter: blur(20px);
-    filter: blur(20px);
+    -webkit-filter: blur(30px) brightness(0.9);
+    -moz-filter: blur(30px) brightness(0.9);
+    -o-filter: blur(30px) brightness(0.9);
+    -ms-filter: blur(30px);
+    filter: blur(30px) brightness(0.9);
 
     position: fixed;
     transform: scale(1.1);
@@ -102,7 +102,7 @@ h1 {
 #mainMenu .listServers .paddingIconMenu::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: rgba(75,75,75,0.8);
+    background: rgba(90,90,90,0.6);
     -webkit-box-shadow: inset 0 0 6px rgba(10,0,0,0.5);
 }
 
