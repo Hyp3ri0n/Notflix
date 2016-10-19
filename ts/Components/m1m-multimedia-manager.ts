@@ -1,12 +1,6 @@
 import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
-enum ContentDisplay {
-    HOME,
-    MEDIAS,
-    SETTING,
-    LECTEURS
-}
 
 @Component({
     selector		: "comp-multimedia-manager",
@@ -19,6 +13,13 @@ export class CompMultimediaManager {
     currentServer   : MediaServer = null;
     medias          : Media[] = [];
     menuDisplayed   : boolean = false;
+
+    HOME : number = 1;
+    MEDIAS : number = 2;
+    SETTINGS : number = 3;
+    LECTEURS : number = 4;
+
+    content         : number = this.HOME;
 
     constructor(private comm: CommService) {
         console.log( "CommService:", comm);
@@ -44,6 +45,15 @@ export class CompMultimediaManager {
     selectedServer(event) {
         console.log("Event from server, server : ", event);
         this.currentServer = this.currentServer === null ? event.value : null;
+        if(this.currentServer !== null) {
+            this.setContentDisplay(this.MEDIAS);
+        } else {
+            this.setContentDisplay(this.HOME);
+        }
         console.log("currentServer : ", this.currentServer);
+    }
+
+    setContentDisplay(cd : number) {
+        this.content = cd;
     }
 };

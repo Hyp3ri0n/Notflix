@@ -27,7 +27,7 @@ export class CompDirectory implements OnInit {
     itemClick() {
         this.open = !this.open;
         if(this.open) {
-            this.element.nativeElement.classList.add("activeDirectory");
+            //this.element.nativeElement.classList.add("activeDirectory");
         }
         // Chargement des médias avec chargement dans la liste de CommService
         this.cs.browse(this.nf.serverId, this.nf.directory, true).then((data: DataBrowse) => {
