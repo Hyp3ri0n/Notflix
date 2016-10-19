@@ -43,14 +43,18 @@ h1 {
     text-align: center;
 }
 
-/************************/
-/******** MENU **********/
-/************************/
-
 .shrink {
     background-color: rgba(30,30,30,0.65);
     height: 100%;
     color:white;
+}
+
+/************************/
+/******** MENU **********/
+/************************/
+
+#mainMenu {
+    max-width: 20%;
 }
 
 #mainMenu .paddingIconMenu {
@@ -93,24 +97,25 @@ h1 {
 }
 
 #mainMenu .listServers .paddingIconMenu.solo {
-    overflow-y: auto;
     height: 100%;
-    padding-right: 15px;
+    display: flex;
+    flex-flow: column;
+    /*padding-right: 15px;*/
 }
 
 /*Scroll menu*/
-#mainMenu .listServers .paddingIconMenu::-webkit-scrollbar-thumb {
+#mainMenu .listDirectories::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background: rgba(90,90,90,0.6);
     -webkit-box-shadow: inset 0 0 6px rgba(10,0,0,0.5);
 }
 
-#mainMenu .listServers .paddingIconMenu::-webkit-scrollbar {
+#mainMenu .listDirectories::-webkit-scrollbar {
     width: 3px;
 }
 
-#mainMenu .listServers .paddingIconMenu::-webkit-scrollbar-track {
+#mainMenu .listDirectories::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -124,6 +129,15 @@ h1 {
 
 #mainMenu .itemServer {
     cursor: pointer;
+    flex: 0 1 auto;
+}
+
+#mainMenu .itemServer .closeZoneServer .fa-times, #mainMenu .itemServer .closeZoneServer, #mainMenu .itemServer .fa-server, #mainMenu .itemServer .closeZoneServer .labelServer {
+    vertical-align: middle;
+}
+
+#mainMenu .itemServer .closeZoneServer .fa-times {
+   font-size: 20px;
 }
 
 #mainMenu .itemServer .labelServer {
@@ -132,7 +146,9 @@ h1 {
 }
 
 #mainMenu .listDirectories {
-    padding-left: 10px;
+    padding: 0 10px;
+    overflow-y: auto;
+    flex: 1 1 auto;
 }
 
 #mainMenu .listDirectories m1m-directory {
@@ -141,12 +157,17 @@ h1 {
     cursor: pointer;
 }
 
-/*#mainMenu .listDirectories m1m-directory .parentItem{
+#mainMenu .listDirectories m1m-directory .activeDirectory {
+    color : pink;
+}
 
-}*/
+#mainMenu .listDirectories m1m-directory .parentItem{
+    overflow-x : hidden;
+}
 
 #mainMenu .listDirectories m1m-directory .subItem {
     padding-left: 10px;
+    overflow-x : hidden;
 }
 
 #mainMenu .footerMenu {

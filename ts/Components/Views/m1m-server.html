@@ -1,7 +1,7 @@
 <div class="paddingIconMenu">
     <div class="itemServer" (click)="showDirectories()">
         <i class="fa fa-server fa-2x" aria-hidden="true"></i>
-        <div *ngIf="menuDisplayed">
+        <div *ngIf="menuDisplayed" class="closeZoneServer">
             <div class="labelServer">{{nf.name}}</div>
             <i *ngIf="serverSelected" class="fa fa-times fa-2x" aria-hidden="true"></i>
         </div>
