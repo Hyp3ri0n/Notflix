@@ -1,4 +1,10 @@
-<div [alx-draggable]="nf" style="background-color: red; height: 50px; margin-top: 10px;">
+<div style="background-color: red; height: 50px; margin-top: 10px;"
+     alx-dropzone
+     (alx-ondrop)="loadAndPlay($event)"
+     alx-dragstart-css="canDrop"
+     alx-draghover-css="dropOver"
+     [alx-accept-fct]="isMedia"
+>
     {{nf.name}}
     <img src="{{nf.iconURL}}"/>
     <button (click)="play()">PLAY</button>

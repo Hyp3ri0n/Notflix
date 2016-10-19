@@ -23,10 +23,12 @@ export class CompLecteur {
     stop() : void {
         this.comm.stop(this.nf.id);
     }
-
-    loadMedia(media : Media) : void {
+    isMedia(draggable: any) : boolean {
+        return true;
+    }
+    loadAndPlay(media: Media) : void {
         this.media = media;
-
-        this.comm.loadMedia(this.comm.mediaRenderers[0].id, this.media.serverId, this.media.mediaId);
+        this.comm.loadMedia(this.nf.id, this.media.serverId, this.media.mediaId);
+        this.play();
     }
 };
