@@ -14,17 +14,19 @@ import { CompDirectory } 			from "./Components/m1m-directory";
 import { CompLecteur } 				from "./Components/m1m-lecteur";
 import { CommService } 				from "./Services/CommService";
 
+import { DragDropModule }           from "./Components/dragNdrop/DragDropModule";
+
+
 @Component({
 	selector	: "root-manager",
-	template	: `<comp-multimedia-manager title="Gestion des services UPnP/DLNA"></comp-multimedia-manager>
-				  `
+	template	: `<comp-multimedia-manager title="Gestion des services UPnP/DLNA" alx-dragdrop></comp-multimedia-manager>				  `
 })
 class RootManager {
 }
 
 //enableProdMode();
 @NgModule({
-	imports     : [BrowserModule, FormsModule, HttpModule],
+	imports     : [BrowserModule, FormsModule, HttpModule, DragDropModule ],
 	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer, CompDirectory, CompLecteur],
 	providers	: [CommService],
 	bootstrap   : [RootManager]
