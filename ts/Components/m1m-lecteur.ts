@@ -13,4 +13,8 @@ export class CompLecteur {
     constructor(private comm: CommService) {
         console.log(comm);
     }
+
+    isMedia(draggable: any) : boolean {
+        return true;
+    }
 };

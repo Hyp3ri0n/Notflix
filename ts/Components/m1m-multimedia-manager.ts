@@ -15,7 +15,7 @@ export class CompMultimediaManager {
     menuDisplayed   : boolean = false;
 
     HOME : number = 1;
-    MEDIAS : number = 2;
+    NAVIGATION : number = 2;
     SETTINGS : number = 3;
     LECTEURS : number = 4;
 
@@ -46,7 +46,7 @@ export class CompMultimediaManager {
         console.log("Event from server, server : ", event);
         this.currentServer = this.currentServer === null ? event.value : null;
         if(this.currentServer !== null) {
-            this.setContentDisplay(this.MEDIAS);
+            this.setContentDisplay(this.NAVIGATION);
         } else {
             this.setContentDisplay(this.HOME);
         }

@@ -243,7 +243,7 @@ h1 {
 /**********************************/
 
 #secondaryMenu {
-    display: none; /*flex*/ /*La faute d'aurel*/
+    display: none;
     flex-flow: column;
     height: 100%;
 }
