@@ -154,7 +154,7 @@ export class AlxDraggable {
             this.possibleDropZones = DM.startDrag(idPointer, this);
 
             [].forEach.call(document.querySelectorAll(".dropableElements"), function (el) {
-                el.style.display = "flex";
+                el.classList.add("dropActive");
             });
         }
     }
@@ -178,7 +178,7 @@ export class AlxDraggable {
         this.currentDropZone = null;
 
         [].forEach.call(document.querySelectorAll(".dropableElements"), function (el) {
-            el.style.display = "none";
+            el.classList.remove("dropActive");
         });
     }
     move(x: number, y: number) : this {

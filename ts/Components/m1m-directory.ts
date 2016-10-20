@@ -1,6 +1,7 @@
 /** Commentaire **/
 import {Component, Input, OnInit, ElementRef} from "@angular/core";
 import {Directory, CommService, DataBrowse} from "../Services/CommService";
+import {AppService} from "../Services/AppService";
 
 
 @Component({
@@ -13,7 +14,7 @@ export class CompDirectory implements OnInit {
     directories         : Directory[]   = [];
     open                : boolean       = false;
 
-    constructor(private cs : CommService, private element: ElementRef) {
+    constructor(private cs : CommService, private element: ElementRef, private as : AppService) {
 
     }
 
@@ -25,6 +26,13 @@ export class CompDirectory implements OnInit {
     }
 
     itemClick() {
+        this.as.setModeApp(this.as.MODE_NAVIGATION);
+
+        [].forEach.call(document.querySelectorAll(".parentItem"), function (el) {
+            el.classList.remove("active");
+        });
+        this.element.nativeElement.classList.add("activeDirectory");
+
         this.open = !this.open;
         if(this.open) {
             //this.element.nativeElement.classList.add("activeDirectory");
