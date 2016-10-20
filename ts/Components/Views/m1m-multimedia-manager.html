@@ -26,11 +26,11 @@
             </m1m-server>
         </div>
         <div class="footerMenu">
-            <div class="paddingIconMenu" (click)="this.setContentDisplay(this.SETTING);">
+            <div class="paddingIconMenu" (click)="this.appService.setModeApp(this.appService.MODE_SETTINGS);">
                 <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
                 <div *ngIf="menuDisplayed">Paramètres</div>
             </div>
-            <div class="paddingIconMenu" (click)="this.setContentDisplay(this.LECTEURS);">
+            <div class="paddingIconMenu" (click)="this.appService.setModeApp(this.appService.MODE_LECTEURS);">
                 <i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i>
                 <div *ngIf="menuDisplayed">En cours</div>
             </div>
@@ -39,10 +39,10 @@
     <!--MAIN-->
     <div class="columns" id="main">
         <!-- Partie navigateur (centrale) -->
-        <div class="switch" [ngSwitch]="this.content">
+        <div class="switch" [ngSwitch]="this.appService.modeApp">
 
             <!-- Partie Home -->
-            <div class="switchContent" *ngSwitchCase="this.HOME">
+            <div class="switchContent" *ngSwitchCase="this.appService.MODE_HOME">
                 <div id="header">
                     <h1>Bienvenue sur Notflix !</h1>
                     <h2>La contrefaçon lowcost de Netflix.</h2>
@@ -102,8 +102,8 @@
                 </div>
             </div>
 
-            <!-- Partie Médias -->
-            <div class="switchContent" *ngSwitchCase="this.NAVIGATION">
+            <!-- Partie Navigation -->
+            <div class="switchContent" *ngSwitchCase="this.appService.MODE_NAVIGATION">
                 <div id="header">
                     Header
                 </div>
@@ -114,7 +114,7 @@
             </div>
 
             <!-- Partie Settings -->
-            <div class="switchContent" *ngSwitchCase="this.SETTING">
+            <div class="switchContent" *ngSwitchCase="this.appService.MODE_SETTINGS">
                 <div id="header">
                     Header
                 </div>
@@ -127,7 +127,7 @@
             </div>
 
             <!-- Partie Lecteurs -->
-            <div class="switchContent" *ngSwitchCase="this.LECTEURS">
+            <div class="switchContent" *ngSwitchCase="this.appService.MODE_LECTEURS">
                 <div id="header">
                     <h1>Liste des Lecteurs</h1>
                 </div>
@@ -138,7 +138,7 @@
         </div>
     </div>
 
-    <!--Menu lecteurs ----- caché dans le CSS (Aurel)-->
+    <!--Menu lecteurs -->
     <div class="shrink columns dropableElements" id="secondaryMenu">
         <h3>Lecteurs</h3>
         <div class="slideArrow"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>

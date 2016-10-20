@@ -1,5 +1,6 @@
 import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
+import {AppService} from "../Services/AppService";
 
 
 @Component({
@@ -14,14 +15,8 @@ export class CompMultimediaManager {
     medias          : Media[] = [];
     menuDisplayed   : boolean = false;
 
-    HOME : number = 1;
-    NAVIGATION : number = 2;
-    SETTINGS : number = 3;
-    LECTEURS : number = 4;
 
-    content         : number = this.HOME;
-
-    constructor(private comm: CommService) {
+    constructor(private comm: CommService, private appService: AppService) {
         console.log( "CommService:", comm);
         comm.init().subscribe( (data: DataInit) => {
             console.log( "init =>", data );
@@ -46,14 +41,10 @@ export class CompMultimediaManager {
         console.log("Event from server, server : ", event);
         this.currentServer = this.currentServer === null ? event.value : null;
         if(this.currentServer !== null) {
-            this.setContentDisplay(this.NAVIGATION);
+            this.appService.setModeApp(this.appService.MODE_NAVIGATION);
         } else {
-            this.setContentDisplay(this.HOME);
+            this.appService.setModeApp(this.appService.MODE_HOME);
         }
         console.log("currentServer : ", this.currentServer);
-    }
-
-    setContentDisplay(cd : number) {
-        this.content = cd;
     }
 };

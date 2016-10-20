@@ -16,6 +16,7 @@ import { CommService } 				from "./Services/CommService";
 
 import { DragDropModule }           from "./Components/dragNdrop/DragDropModule";
 import {CompLecteurManager} from "./Components/m1m-lecteur-manager";
+import {AppService} from "./Services/AppService";
 
 
 @Component({
@@ -29,7 +30,7 @@ class RootManager {
 @NgModule({
 	imports     : [BrowserModule, FormsModule, HttpModule, DragDropModule ],
 	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer, CompDirectory, CompLecteur, CompLecteurManager],
-	providers	: [CommService],
+	providers	: [CommService, AppService],
 	bootstrap   : [RootManager]
 })
 export class AppModule {}
