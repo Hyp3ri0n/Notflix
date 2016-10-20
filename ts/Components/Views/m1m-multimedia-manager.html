@@ -110,9 +110,6 @@
                 <div id="content" class="h70">
                     <m1m-media *ngFor="let media of this.comm.medias" [nf]="media"></m1m-media>
                 </div>
-                <div id="footer">
-                    Footer
-                </div>
             </div>
 
             <!-- Partie Settings -->
@@ -131,21 +128,20 @@
             <!-- Partie Lecteurs -->
             <div class="switchContent" *ngSwitchCase="this.LECTEURS">
                 <div id="header">
-                    Header
+                    <h1>Liste des Lecteurs</h1>
                 </div>
                 <div id="content" class="h70">
-                    <h1>Lecteurs</h1>
-                </div>
-                <div id="footer">
-                    Footer
+                    <m1m-lecteur-manager *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur-manager>
                 </div>
             </div>
         </div>
     </div>
-    <!--Menu lecteurs-->
+
+    <!--Menu lecteurs ----- caché dans le CSS (Aurel)-->
     <div class="shrink columns" id="secondaryMenu">
+        <h3>Lecteurs</h3>
+        <div class="slideArrow"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
         <div class="listLecteurs">
-            <h3>Lecteurs</h3>
             <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
         </div>
         <div class="slideArrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>

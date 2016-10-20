@@ -21,7 +21,7 @@ export class CompMedia {
         // temporaire : permet de recuperer le lecteur de la machine
         this.comm.mediaRenderers.forEach((e) => {
             console.log(e);
-            if(e.name === "Kodi (f217-12)") {
+            if(e.name === "Kodi (F214-09)") {
                 this.renderer = e;
             }
         });
