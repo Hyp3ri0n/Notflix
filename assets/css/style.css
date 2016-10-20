@@ -193,10 +193,11 @@ h1 {
     display: flex;
     flex-flow: column;
     height: 100%;
-    transition: opacity 1s ease-out;
+    transition: 0.5s ease;
     opacity: 0;
     width: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 #secondaryMenu.dropActive{
