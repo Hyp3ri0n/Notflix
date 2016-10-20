@@ -28,10 +28,10 @@ export class CompDirectory implements OnInit {
     itemClick() {
         this.as.setModeApp(this.as.MODE_NAVIGATION);
 
-        [].forEach.call(document.querySelectorAll(".parentItem"), function (el) {
-            el.classList.remove("active");
+        [].forEach.call(document.querySelectorAll(".activeDirectory"), function (el) {
+            el.classList.remove("activeDirectory");
         });
-        this.element.nativeElement.classList.add("activeDirectory");
+        this.element.nativeElement.children[0].classList.add("activeDirectory");
 
         this.open = !this.open;
         if(this.open) {
