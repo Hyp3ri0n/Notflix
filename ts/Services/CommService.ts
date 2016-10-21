@@ -143,7 +143,7 @@ export class CommService {
                 } // End of containers parsing
 
                 // Nettoyage des medias courants
-                this.medias = [];
+                /*this.medias = [];*/
                 // Parse item
                 for(let item of ResultDoc.querySelectorAll("item")) {
                     let node    : Node;
@@ -165,9 +165,9 @@ export class CommService {
                         classe          : (node=item.querySelector("class"))?node.textContent:""
                     } );
 
-                    if(withMedias) {
+                    /*if(withMedias) {
                         this.medias = dataBrowse.medias;
-                    }
+                    }*/
 
                     for(let actor of item.querySelectorAll( "actor" )) {
                         media.actors.push( actor.textContent );

@@ -17,4 +17,10 @@ export class CompLecteur {
     isMedia(draggable: any) : boolean {
         return true;
     }
+
+    loadAndPlay(media: Media) : void {
+        this.media = media;
+        this.comm.loadMedia(this.nf.id, this.media.serverId, this.media.mediaId);
+        this.comm.play(this.nf.id);
+    }
 };
