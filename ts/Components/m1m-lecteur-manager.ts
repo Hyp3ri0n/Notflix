@@ -30,7 +30,13 @@ export class CompLecteurManager implements OnInit {
         this.comm.stop(this.nf.id);
     }
     setVolume() : void {
-        this.comm.setVolume(this.nf.id, 20);
+        let value;
+        [].forEach.call(document.querySelector("#fader" + this.nf.id), (e) => {
+            value = e.value;
+        });
+
+        console.log(this.nf.name, value);
+        this.comm.setVolume(this.nf.id, value);
     }
     isMedia(draggable: any) : boolean {
         return true;

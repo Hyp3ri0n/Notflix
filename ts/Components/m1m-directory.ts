@@ -37,7 +37,6 @@ export class CompDirectory implements OnInit {
 
         // Chargement des médias avec chargement dans la liste de CommService
         this.cs.browse(this.nf.serverId, this.nf.directory, true).then((data: DataBrowse) => {
-            this.cs.medias = data.medias;
             this.directories = data.directories;
         });
     }
