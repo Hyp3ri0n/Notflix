@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import {Component, Input, OnInit, ElementRef} from "@angular/core";
 import {CommService, MediaRenderer, Media} from "../Services/CommService";
 import {utils} from "../Services/utils";
 
@@ -8,10 +8,14 @@ import {utils} from "../Services/utils";
 })
 
 export class CompLecteurManager implements OnInit {
-    @Input() nf	: MediaRenderer;
-    media       : Media;
+    @Input() nf	        : MediaRenderer;
+    media               : Media;
+    displayPause        : boolean = false;
+    valueVolume         : number = 0;
+    titleMedia          : string = "Pas de média lancé...";
+    regex               : RegExp = new RegExp("\<dc:title\>([a-zA-Z0-9_\.]*)\<\/dc:title\>");
 
-    constructor(private comm: CommService) {
+    constructor(private comm: CommService, private element: ElementRef) {
         console.log(comm);
     }
 
@@ -30,13 +34,12 @@ export class CompLecteurManager implements OnInit {
         this.comm.stop(this.nf.id);
     }
     setVolume() : void {
-        let value;
-        [].forEach.call(document.querySelector("#fader" + this.nf.id), (e) => {
-            value = e.value;
-        });
+        let e = this.element.nativeElement.querySelector("#fader");
+        this.valueVolume = e.value;
+        console.log("element : ", this.element.nativeElement, "Value fader : ", this.valueVolume);
 
-        console.log(this.nf.name, value);
-        this.comm.setVolume(this.nf.id, value);
+        console.log(this.nf.name, this.valueVolume);
+        this.comm.setVolume(this.nf.id, this.valueVolume);
     }
     isMedia(draggable: any) : boolean {
         return true;
@@ -49,14 +52,20 @@ export class CompLecteurManager implements OnInit {
 
     subscribeCallback(e) : void {
         console.log(e);
-        console.log("Attribut : ", e.data.attribut, " Value : ", e.data.value);
 
         switch (e.data.attribut) {
             case "Volume" :
-                console.log("Volume set : ", e.data.value);
+                this.valueVolume = e.data.value;
                 break;
             case "TransportState":
                 //TODO recuperer l'etat de lecture (PLAYING, PAUSED_PLAYBACK, STOPPED)
+                if (e.data.value === "PLAYING") {
+                    this.displayPause = true;
+                } else if (e.data.value === "PAUSED_PLAYBACK") {
+                    this.displayPause = false;
+                } else {
+                    this.displayPause = false;
+                }
                 break;
             case "NumberOfTracks":
                 break;
@@ -67,6 +76,7 @@ export class CompLecteurManager implements OnInit {
             case "CurrentMediaDuration":
                 break;
             case "CurrentTrackMetaData":
+                this.titleMedia = this.regex.exec(e.data.value)[1];
                 break;
             case "AVTransportURIMetaData":
                 break;
