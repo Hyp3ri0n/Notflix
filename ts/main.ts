@@ -17,6 +17,7 @@ import { CommService } 				from "./Services/CommService";
 import { DragDropModule }           from "./Components/dragNdrop/DragDropModule";
 import {CompLecteurManager} from "./Components/m1m-lecteur-manager";
 import {AppService} from "./Services/AppService";
+import {CompMediaManager} from "./Components/m1m-media-manager";
 
 
 @Component({
@@ -29,7 +30,8 @@ class RootManager {
 //enableProdMode();
 @NgModule({
 	imports     : [BrowserModule, FormsModule, HttpModule, DragDropModule ],
-	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer, CompDirectory, CompLecteur, CompLecteurManager],
+	declarations: [RootManager, CompMultimediaManager, CompMedia, CompServer,
+					CompDirectory, CompLecteur, CompLecteurManager, CompMediaManager],
 	providers	: [CommService, AppService],
 	bootstrap   : [RootManager]
 })

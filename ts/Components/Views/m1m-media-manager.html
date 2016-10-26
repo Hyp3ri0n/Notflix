@@ -1,0 +1,16 @@
+<div>
+    <h1>{{nf.title}}</h1>
+
+    <p>{{nf.longdescription}}</p>
+
+    <p>{{nf.date}}</p>
+
+    <p>{{nf.creator}}</p>
+
+
+    <select name="lecteur">
+        <option *ngFor="let lecteur of this.comm.mediaRenderers" value="{{lecteur.id}}">{{lecteur.name}}</option>
+    </select>
+
+    <button>Lancer</button>
+</div>

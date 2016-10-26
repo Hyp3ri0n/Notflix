@@ -43,11 +43,9 @@
 
             <!-- Partie Home -->
             <div class="switchContent" *ngSwitchCase="this.appService.MODE_HOME">
-                <div id="header">
+                <div id="content">
                     <h1>Bienvenue sur Notflix !</h1>
                     <h2>La contrefaçon lowcost de Netflix.</h2>
-                </div>
-                <div id="content" class="h70">
                     <div class="descriptifProjet" style="width: 45%; border-right: solid 1px white; display: inline-block;">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce luctus massa est, in
                             dapibus augue efficitur ac. Donec sit amet lacus justo. Sed euismod sed diam vel scelerisque.
@@ -97,9 +95,6 @@
                     </div>
 
                 </div>
-                <div id="footer">
-                    Footer
-                </div>
             </div>
 
             <!-- Partie Navigation -->
@@ -121,9 +116,6 @@
                 <div id="content" class="h70">
                     <h1>Settings</h1>
                 </div>
-                <div id="footer">
-                    Footer
-                </div>
             </div>
 
             <!-- Partie Lecteurs -->
@@ -133,6 +125,13 @@
                 </div>
                 <div id="content" class="h85">
                     <m1m-lecteur-manager *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur-manager>
+                </div>
+            </div>
+
+            <!-- Partie Media -->
+            <div class="switchContent" *ngSwitchCase="this.appService.MODE_MEDIA">
+                <div id="content">
+                    <m1m-media-manager [nf]="this.appService.currentMedia"></m1m-media-manager>
                 </div>
             </div>
         </div>

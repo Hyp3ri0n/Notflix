@@ -3,6 +3,7 @@
  */
 import { Component, Input 	} from "@angular/core";
 import {Media, CommService, MediaRenderer} from "../Services/CommService";
+import {AppService} from "../Services/AppService";
 
 
 @Component({
@@ -14,23 +15,11 @@ export class CompMedia {
     @Input() nf : Media;
     renderer    : MediaRenderer = null;
 
-    constructor(private comm : CommService) {
+    constructor(private comm : CommService, private app : AppService) {
 
     }
-    loadMedia() {
-        // temporaire : permet de recuperer le lecteur de la machine
-        this.comm.mediaRenderers.forEach((e) => {
-            console.log(e);
-            if(e.name === "Kodi (F214-09)") {
-                this.renderer = e;
-            }
-        });
-        // permet de lancer le media sur le lecteur (ne fonctionne pas)
-        if (this.renderer !== null) {
-            this.comm.loadMedia(this.renderer.id, this.nf.serverId, this.nf.mediaId).then(() => {
-                this.comm.play(this.renderer.id);
-                console.log("Media played : ", this.nf.title, " on ", this.renderer.name);
-            });
-        }
+    afficheMedia() {
+        this.app.currentMedia = this.nf;
+        this.app.setModeApp(this.app.MODE_MEDIA);
     }
 };
