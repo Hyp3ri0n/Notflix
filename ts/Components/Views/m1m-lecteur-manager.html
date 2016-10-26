@@ -3,13 +3,13 @@
     <div class="labelLecteur">{{nf.name}}</div>
     <div>{{titleMedia}}</div>
     <div class="controlButtons">
-        <button (click)="stop()" tooltip="STOP" class="fa fa-stop-circle-o fa-2x" aria-hidden="true"></button>
-        <button *ngIf="!displayPause"  (click)="play()" tooltip="PLAY" class="fa fa-play-circle-o fa-4x" aria-hidden="true"></button>
-        <button *ngIf="displayPause" (click)="pause()" tooltip="PAUSE" class="fa fa-pause-circle-o fa-4x" aria-hidden="true"></button>
-        <button tooltip="INFO" class="fa fa-question-circle-o fa-2x" aria-hidden="true"></button>
+        <button (click)="stop()" title="STOP" class="fa fa-stop-circle-o fa-2x" aria-hidden="true"></button>
+        <button *ngIf="!displayPause"  (click)="play()" title="PLAY" class="fa fa-play-circle-o fa-4x" aria-hidden="true"></button>
+        <button *ngIf="displayPause" (click)="pause()" title="PAUSE" class="fa fa-pause-circle-o fa-4x" aria-hidden="true"></button>
+        <button title="INFO" class="fa fa-question-circle-o fa-2x" aria-hidden="true"></button>
     </div>
     <div class="controlVolume">
-        <label for="fader" class="labelVolume"><i class="fa fa-volume-up fa-2x" aria-hidden="true"></i></label>
-        <input (change)="setVolume()" type="range" min="0" max="100" value="{{valueVolume}}" id="fader"/>
+        <label class="labelVolume fa fa-volume-up fa-2x" aria-hidden="true"></label>
+        <input (change)="setVolume()" type="range" min="0" max="100" value="{{valueVolume}}"/>
     </div>
 </div>

@@ -13,7 +13,8 @@ export class CompLecteurManager implements OnInit {
     displayPause        : boolean = false;
     valueVolume         : number = 0;
     titleMedia          : string = "Pas de média lancé...";
-    regex               : RegExp = new RegExp("\<dc:title\>([a-zA-Z0-9_\.]*)\<\/dc:title\>");
+    regex               : RegExp = new RegExp("\<dc:title\>([a-zA-Z0-9_\.éèàç&-]*)\<\/dc:title\>");
+    // todo : regex ID : regexId             : RegExp = new RegExp("\<item id="([]*)" parentID="" restricted="1"\>");
 
     constructor(private comm: CommService, private element: ElementRef) {
         console.log(comm);

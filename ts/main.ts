@@ -21,7 +21,7 @@ import {AppService} from "./Services/AppService";
 
 @Component({
 	selector	: "root-manager",
-	template	: `<comp-multimedia-manager title="Gestion des services UPnP/DLNA" alx-dragdrop></comp-multimedia-manager>				  `
+	template	: `<comp-multimedia-manager alx-dragdrop></comp-multimedia-manager>				  `
 })
 class RootManager {
 }

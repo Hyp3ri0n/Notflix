@@ -1,4 +1,4 @@
-import { Component, Input 	} from "@angular/core";
+import { Component } from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 import {AppService} from "../Services/AppService";
 
@@ -8,7 +8,7 @@ import {AppService} from "../Services/AppService";
     templateUrl     : "ts/Components/Views/m1m-multimedia-manager.html"
 })
 export class CompMultimediaManager {
-    @Input() title	: string;
+/*    @Input() title	: string;*/
     mediaRenderers  : MediaRenderer[];
     mediaServers    : MediaServer  [];
     currentServer   : MediaServer = null;

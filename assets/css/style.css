@@ -257,8 +257,8 @@ h1 {
     flex: 0 1 auto;
 }
 
-.dropHover {
-    background-color: pink !important;
+#secondaryMenu m1m-lecteur .lecteurItem.dropHover {
+    background-color: pink;
 }
 
 /** MAIN **/
