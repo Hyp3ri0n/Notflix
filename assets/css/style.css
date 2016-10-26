@@ -39,7 +39,7 @@ body {
 }
 
 .fullPageBackground {
-    background: url("../images/theend.png") no-repeat center center fixed;
+    background: url("../images/firstlight.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -323,14 +323,21 @@ h1 {
 /***** VUE LECTEURS *****/
 /************************/
 #content m1m-lecteur-manager {
-
+    display : inline-flex;
+    margin: 1%;
+    flex-wrap: wrap;
+    width: 200px;
+    max-width: 400px;
+    background-color: rgba(30,30,30,0.4);
 }
+
 
 #content m1m-lecteur-manager .lecteurItem {
     /* utilisation de foundation (col + ligne) */
-    border: 1px solid darkgrey;
-    width: 175px;
+    width: 100%;
     text-align: center;
+    padding: 10px 5px;
+
 }
 
 #content m1m-lecteur-manager .lecteurItem > div{
