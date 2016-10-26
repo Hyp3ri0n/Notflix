@@ -22,8 +22,41 @@ export class CompLecteurManager implements OnInit {
 
     ngOnInit() : void {
         console.log("Init Player");
+        utils.call(this.nf.id, "getMediasStates", []).then((data) => {
+            console.log("test : ", data["urn:schemas-upnp-org:service:AVTransport:1"]);
+            this.initLecteur(data);
+        });
         utils.subscribeBrick(this.nf.id, "eventUPnP", (e) => { this.subscribeCallback(e); });
     }
+
+    initLecteur(data: any) {
+        let infosGeneral = data["urn:schemas-upnp-org:service:AVTransport:1"];
+        let infosVolume = data["urn:schemas-upnp-org:service:RenderingControl:1"];
+
+
+        // Gestion de l'état de base du lecteur
+        console.log("retest : ", infosGeneral["CurrentTrackMetaData"]);
+
+        // Play Pause
+        if (infosGeneral["TransportState"] === "PLAYING") {
+            this.displayPause = true;
+        } else if (infosGeneral["TransportState"] === "PAUSED_PLAYBACK") {
+            this.displayPause = false;
+        } else {
+            this.displayPause = false;
+        }
+
+        // Titre
+        if (infosGeneral["CurrentTrackMetaData"] !== "") {
+            this.titleMedia = this.regex.exec(infosGeneral["CurrentTrackMetaData"])[1];
+        } else {
+            this.titleMedia = "Pas de média lancé...";
+        }
+
+        // Volume
+        this.valueVolume = infosVolume["Volume"];
+    }
+
     play() : void {
         this.comm.play(this.nf.id);
         console.log(this.nf.name);
@@ -35,11 +68,8 @@ export class CompLecteurManager implements OnInit {
         this.comm.stop(this.nf.id);
     }
     setVolume() : void {
-        let e = this.element.nativeElement.querySelector("#fader");
+        let e = this.element.nativeElement.querySelector("input[type=range]");
         this.valueVolume = e.value;
-        console.log("element : ", this.element.nativeElement, "Value fader : ", this.valueVolume);
-
-        console.log(this.nf.name, this.valueVolume);
         this.comm.setVolume(this.nf.id, this.valueVolume);
     }
     isMedia(draggable: any) : boolean {
