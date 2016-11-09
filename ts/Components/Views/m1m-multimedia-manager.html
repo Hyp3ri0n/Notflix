@@ -100,11 +100,14 @@
             <!-- Partie Navigation -->
             <div class="switchContent" *ngSwitchCase="this.appService.MODE_NAVIGATION">
                 <div id="header">
-                    Header
+                    <h1>
+                        Directory : Medias
+                    </h1>
                 </div>
                 <div id="content" class="h85">
                     <m1m-media *ngFor="let media of this.comm.medias" [nf]="media"></m1m-media>
-                    <div *ngIf="this.comm.medias.length === 0">Pas de média dans ce dossier ...</div>
+                    <!--<div *ngIf="this.comm.medias.length === 0">Pas de média dans ce dossier ...</div>-->
+                    <img class="notFound" src="./assets/images/notFound.jpg" *ngIf="this.comm.medias.length === 0" title="Pas de médias dans ce dossier"/>
                 </div>
             </div>
 

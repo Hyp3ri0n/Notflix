@@ -356,3 +356,12 @@ h1 {
     color : white;
     display: inline-block;
 }
+
+/************************/
+/**** VUE NAVIGATION ****/
+/************************/
+#content .notFound {
+    width: 572px;
+    margin: 0 auto;
+    display: block;
+}
