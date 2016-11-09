@@ -100,8 +100,8 @@
             <!-- Partie Navigation -->
             <div class="switchContent" *ngSwitchCase="this.appService.MODE_NAVIGATION">
                 <div id="header">
-                    <h1>
-                        Directory : Medias
+                    <h1 *ngIf="this.appService.getCurrentDirectory() !== null">
+                        {{this.appService.getCurrentDirectory().name}}
                     </h1>
                 </div>
                 <div id="content" class="h85">

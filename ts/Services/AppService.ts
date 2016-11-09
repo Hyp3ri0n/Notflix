@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Media} from "./CommService";
+import {Media, Directory} from "./CommService";
 
 @Injectable()
 export class AppService {
@@ -10,16 +10,23 @@ export class AppService {
     MODE_MEDIA           : number = 5;
 
     public currentMedia         : Media;
-    private modeApp      : number = this.MODE_HOME;
-    private currentDirectory     : string;
+    private modeApp             : number = this.MODE_HOME;
+    private currentDirectory    : Directory = null;
 
     setModeApp(mode: number) : void {
-        if(mode < 6 || mode > 0) {
-            this.modeApp = mode;
+        if (mode !== this.modeApp) {
+            if (mode < 6 || mode > 0) {
+                this.modeApp = mode;
+                this.currentDirectory = null;
+            }
         }
     }
 
-    setCurrentDirectort(id: string) : void {
-        this.currentDirectory = id;
+    setCurrentDirectort(dir: Directory) : void {
+        this.currentDirectory = dir;
+    }
+
+    getCurrentDirectory() : Directory {
+        return this.currentDirectory;
     }
 }
