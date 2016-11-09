@@ -37,7 +37,7 @@ export class CompMultimediaManager {
         console.log(this.menuDisplayed);
     }
 
-    selectedServer(event) {
+    selectedServer(event) : void {
         console.log("Event from server, server : ", event);
         this.currentServer = this.currentServer === null ? event.value : null;
         if(this.currentServer !== null) {
@@ -47,4 +47,25 @@ export class CompMultimediaManager {
         }
         console.log("currentServer : ", this.currentServer);
     }
+
+    scrollHover(event : boolean, up : boolean) : void {
+        let divLecteurs = document.getElementById("#idDivListOfLecteurs");
+
+        if(event === true) {
+            console.log("Scroll Enter : ", divLecteurs);
+            if (up === true) {
+                console.log("Scroll up");
+            } else {
+                console.log("Scroll down");
+            }
+        } else {
+            console.log("Scroll Exit : ", divLecteurs);
+        }
+    }
+
+    isMedia() {
+        return true;
+    }
+
+
 };

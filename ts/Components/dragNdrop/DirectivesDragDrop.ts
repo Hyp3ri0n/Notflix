@@ -231,6 +231,7 @@ export class AlxDropzone {
     @Input("alx-dragstart-css") dragStartCSS : string;
     @Input("alx-draghover-css") dragHoverCSS : string;
     @Output("alx-ondrop")       onDropEmitter = new EventEmitter();
+    @Output("alx-onhover")      onHoverEmitter = new EventEmitter();
 
     // CSS when canDrop and startdraggable
     private dropCandidateofPointers : Array<string> = [];
@@ -257,6 +258,7 @@ export class AlxDropzone {
             if(this.dragHoverCSS) {
                 this.root.classList.add( this.dragHoverCSS );
             }
+            this.onHoverEmitter.emit(true);
         }
     }
     removePointerHover( idPointer: string ) {
@@ -266,6 +268,7 @@ export class AlxDropzone {
             if(this.pointersHover.length === 0 && this.dragHoverCSS) {
                 this.root.classList.remove( this.dragHoverCSS );
             }
+            this.onHoverEmitter.emit(false);
         }
     }
     appendDropCandidatePointer( idPointer: string ) {

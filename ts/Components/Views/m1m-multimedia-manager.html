@@ -105,7 +105,7 @@
                     </h1>
                 </div>
                 <div id="content" class="h85">
-                    <m1m-media *ngFor="let media of this.comm.medias" [nf]="media"></m1m-media>
+                    <m1m-media *ngFor="let media of this.comm.medias" [nf]="media" class="grid"></m1m-media>
                     <!--<div *ngIf="this.comm.medias.length === 0">Pas de média dans ce dossier ...</div>-->
                     <img class="notFound" src="./assets/images/notFound.jpg" *ngIf="this.comm.medias.length === 0" title="Pas de médias dans ce dossier"/>
                 </div>
@@ -127,7 +127,7 @@
                     <h1>Liste des Lecteurs</h1>
                 </div>
                 <div id="content" class="h85">
-                    <m1m-lecteur-manager *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur-manager>
+                    <m1m-lecteur-manager *ngFor="let lecteur of mediaRenderers" [nf]="lecteur" class="grid"></m1m-lecteur-manager>
                 </div>
             </div>
 
@@ -143,10 +143,32 @@
     <!--Menu lecteurs -->
     <div class="shrink columns dropableElements" id="secondaryMenu">
         <h3>Lecteurs</h3>
-        <div class="slideArrow"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
-        <div class="listLecteurs">
+
+        <!-- Scroll up -->
+        <div class="slideArrow"
+             alx-dropzone
+             (alx-onhover)="scrollHover($event, true)"
+             alx-dragstart-css="canDrop"
+             alx-draghover-css="dropHover"
+             [alx-accept-fct]="isMedia"
+        >
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+        </div>
+
+        <!-- Liste des lecteurs avec scroll présent mais caché -->
+        <div id="idDivListOfLecteurs" class="listLecteurs">
             <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
         </div>
-        <div class="slideArrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>
+
+        <!-- Scroll down -->
+        <div class="slideArrow"
+             alx-dropzone
+             (alx-onhover)="scrollHover($event, false)"
+             alx-dragstart-css="canDrop"
+             alx-draghover-css="dropHover"
+             [alx-accept-fct]="isMedia"
+        >
+            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        </div>
     </div>
 </div>
