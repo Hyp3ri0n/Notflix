@@ -14,6 +14,7 @@ export class CompMultimediaManager {
     currentServer   : MediaServer = null;
     medias          : Media[] = [];
     menuDisplayed   : boolean = false;
+    idInterval      : number;
 
 
     constructor(private comm: CommService, private appService: AppService) {
@@ -48,20 +49,25 @@ export class CompMultimediaManager {
         console.log("currentServer : ", this.currentServer);
     }
 
-    scrollHover(event : boolean, up : boolean) : void {
-        let divLecteurs = document.getElementById("#idDivListOfLecteurs");
+    scrollEnter(event : any, up : boolean) : void {
+        let divLecteurs : Element = document.querySelector("#idDivListOfLecteurs");
+        let facteur     : number  = 7;
 
-        if(event === true) {
-            console.log("Scroll Enter : ", divLecteurs);
-            if (up === true) {
-                console.log("Scroll up");
+        this.idInterval = setInterval(() => {
+            if(up) {
+                divLecteurs.scrollTop -= facteur;
             } else {
-                console.log("Scroll down");
+                divLecteurs.scrollTop += facteur;
             }
-        } else {
-            console.log("Scroll Exit : ", divLecteurs);
-        }
+        }, 25);
     }
+
+    scrollExit(event : any) : void {
+        console.log("Scroll exit");
+        clearInterval(this.idInterval);
+    }
+
+    // TODO : nginit boolean à false si pas de scroll (donc pas de flèche)
 
     isMedia() {
         return true;

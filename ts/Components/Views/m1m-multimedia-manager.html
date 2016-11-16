@@ -147,7 +147,8 @@
         <!-- Scroll up -->
         <div class="slideArrow"
              alx-dropzone
-             (alx-onhover)="scrollHover($event, true)"
+             (alx-ondragenter)="scrollEnter($event, true)"
+             (alx-ondragexit)="scrollExit($event, true)"
              alx-dragstart-css="canDrop"
              alx-draghover-css="dropHover"
              [alx-accept-fct]="isMedia"
@@ -158,12 +159,49 @@
         <!-- Liste des lecteurs avec scroll présent mais caché -->
         <div id="idDivListOfLecteurs" class="listLecteurs">
             <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
+            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
         </div>
 
         <!-- Scroll down -->
         <div class="slideArrow"
              alx-dropzone
-             (alx-onhover)="scrollHover($event, false)"
+             (alx-ondragenter)="scrollEnter($event, false)"
+             (alx-ondragexit)="scrollExit($event, false)"
              alx-dragstart-css="canDrop"
              alx-draghover-css="dropHover"
              [alx-accept-fct]="isMedia"
