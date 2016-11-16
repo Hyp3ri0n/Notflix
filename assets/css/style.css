@@ -112,7 +112,8 @@ h1 {
 }
 
 #mainMenu .hamburger .labelHamburger {
-    padding-left: 5px;
+    padding-left: 15px;
+    height: 25px;
 }
 
 #mainMenu .listServers {
@@ -139,6 +140,10 @@ h1 {
 
 #mainMenu .itemServer .closeZoneServer .fa-times, #mainMenu .itemServer .closeZoneServer, #mainMenu .itemServer .fa-server, #mainMenu .itemServer .closeZoneServer .labelServer {
     vertical-align: middle;
+}
+
+#mainMenu .itemServer .closeZoneServer {
+    padding-left: 5px;
 }
 
 #mainMenu .itemServer .closeZoneServer .fa-times {
