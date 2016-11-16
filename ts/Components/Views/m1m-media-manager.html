@@ -1,11 +1,10 @@
-<div>
-    <h1>{{nf.title}}</h1>
+<h1>{{nf.title}}</h1>
+<div class="mediaContent">
+    <div class="mediaLine" *ngIf="nf.longdescription"><span class="libelle">Description : </span>{{nf.longdescription}}</div>
 
-    <p>{{nf.longdescription}}</p>
+    <div class="mediaLine" *ngIf="nf.date"><span class="libelle">Date de création : </span>{{nf.date}}</div>
 
-    <p>{{nf.date}}</p>
-
-    <p>{{nf.creator}}</p>
+    <div class="mediaLine" *ngIf="nf.creator"><span class="libelle">Auteur : </span>{{nf.creator}}</div>
 
 
     <select name="lecteur">

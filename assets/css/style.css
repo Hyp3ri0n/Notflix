@@ -168,7 +168,7 @@ h1 {
 }
 
 #mainMenu .listDirectories m1m-directory .activeDirectory {
-    color : pink;
+    color : #4FC3F7;
 }
 
 #mainMenu .listDirectories m1m-directory .parentItem{
@@ -394,6 +394,7 @@ h1 {
 
 #content m1m-media > div > img {
     height: 100%;
+    cursor: pointer;
 }
 
 #content m1m-media > div .infosMedia {
@@ -428,6 +429,7 @@ h1 {
 
 #content m1m-media > div .infosMedia .description {
     display: none;
+    cursor: pointer; /*doesn't work*/
 }
 
 #content m1m-media > div .infosMedia .description p {
@@ -450,4 +452,25 @@ h1 {
 
 #content m1m-media > div:hover .infosMedia .description {
     display: block;
+}
+
+/* Media manager */
+#content m1m-media-manager .mediaContent {
+    width: 70%;
+    min-width: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+#content m1m-media-manager .mediaContent .mediaLine {
+    padding: 10px 0;
+}
+
+#content m1m-media-manager .mediaContent .mediaLine span{
+    width : 150px;
+    display: inline-block;
+}
+
+#content m1m-media-manager .mediaContent select {
+    margin: 20px 0 40px 0;
 }
