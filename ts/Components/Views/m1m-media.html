@@ -1,8 +1,7 @@
 <div [alx-draggable]="nf" alx-dragstart-css="mediaDrag" (click)="afficheMedia()" title="{{nf.title}}">
     <!--<i class="fa fa-picture-o" aria-hidden="true"></i>-->
-    <img src="assets/images/b.jpg"/>
-    <!--<img *ngIf="!nf.icon" src="assets/images/b.jpg"/>
-    <img *ngIf="nf.icon" src="{{nf.icon}}"/>-->
+    <img *ngIf="!nf.albumarturi" src="assets/images/b.jpg"/>
+    <img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/>
     <div class="infosMedia">
         <h4 class="titre">
             {{nf.title}}
