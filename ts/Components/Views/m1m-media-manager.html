@@ -6,6 +6,9 @@
 
     <div class="mediaLine" *ngIf="nf.creator"><span class="libelle">Auteur : </span>{{nf.creator}}</div>
 
+    <span class="mediaLine" *ngIf="nf.genres != []"><span class="libelle">Genre : </span><span *ngFor="let genre of nf.genres" class="genre">{{genre}}</span></span>
+
+    <!--<img *ngIf="nf.icon" src="{{nf.icon}}"/>-->
 
     <select name="lecteur">
         <option *ngFor="let lecteur of this.comm.mediaRenderers" value="{{lecteur.id}}">{{lecteur.name}}</option>

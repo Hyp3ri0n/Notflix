@@ -3,6 +3,7 @@ body {
     padding: 0;
     font-family: Helvetica;
     font-size: 14px;
+    overflow: hidden;
 }
 
 /*Scroll*/
@@ -394,6 +395,16 @@ h1 {
     max-height: 75px;
 }
 
+/*when media dragged*/
+body > div[alx-dragstart-css="mediaDrag"] {
+    width: 150px;
+    cursor: move;
+}
+
+body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
+    display: none;
+}
+
 #content m1m-media > div {
     position: relative;
 }
@@ -424,7 +435,7 @@ h1 {
     font-weight: bold;
 }
 
-#content m1m-media > div .infosMedia .description label {
+#content m1m-media > div .infosMedia .description .lbl {
     font-size: 18px!important;
     font-weight: bold;
 }
@@ -477,6 +488,28 @@ h1 {
     display: inline-block;
 }
 
+#content m1m-media-manager .mediaContent .mediaLine .genre {
+    width: auto;
+}
+
+#content m1m-media-manager .mediaContent .mediaLine .genre:after {
+    content : " - "
+}
+
+#content m1m-media-manager .mediaContent .mediaLine .genre:last-of-type:after {
+    content: none;
+}
+
 #content m1m-media-manager .mediaContent select {
     margin: 20px 0 40px 0;
+}
+
+.mediaContent button {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #4D4D4D;
+    background: #8a8a8a;
+    color: #FFF;
+    padding: 10px 0;
 }
