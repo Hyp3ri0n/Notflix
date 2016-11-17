@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 import {AppService} from "../Services/AppService";
 
@@ -7,8 +7,9 @@ import {AppService} from "../Services/AppService";
     selector		: "comp-multimedia-manager",
     templateUrl     : "ts/Components/Views/m1m-multimedia-manager.html"
 })
-export class CompMultimediaManager {
-/*    @Input() title	: string;*/
+export class CompMultimediaManager implements OnInit {
+
+    /*    @Input() title	: string;*/
     mediaRenderers  : MediaRenderer[];
     mediaServers    : MediaServer  [];
     currentServer   : MediaServer = null;
@@ -25,6 +26,13 @@ export class CompMultimediaManager {
             this.mediaServers   = data.mediaServers;
         });
     }
+
+
+    ngOnInit(): void {
+
+        // TODO : nginit boolean à false si pas de scroll (donc pas de flèche)
+    }
+
     browse( ms: MediaServer, directoryId :string ) {
         return this.comm.browse( ms.id, directoryId ).then( (data) => {
             console.log( "Browse", ms.id, directoryId, "=>", data );
@@ -66,8 +74,6 @@ export class CompMultimediaManager {
         console.log("Scroll exit");
         clearInterval(this.idInterval);
     }
-
-    // TODO : nginit boolean à false si pas de scroll (donc pas de flèche)
 
     isMedia() {
         return true;

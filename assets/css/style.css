@@ -384,8 +384,14 @@ h1 {
 
 /* Apparence média */
 #content m1m-media {
+    /*min-width: 175px;*/
     max-width: 250px;
     max-height: 325px;
+}
+
+#content .mediaStart {
+    width: 50px;
+    max-height: 75px;
 }
 
 #content m1m-media > div {

@@ -1,7 +1,7 @@
-<div [alx-draggable]="nf" (click)="afficheMedia()" title="{{nf.title}}">
+<div [alx-draggable]="nf" alx-dragstart-css="mediaDrag" (click)="afficheMedia()" title="{{nf.title}}">
     <!--<i class="fa fa-picture-o" aria-hidden="true"></i>-->
     <img src="assets/images/b.jpg"/>
-    <!--<img src="{{nf.icon}}"/>-->
+    <img src="{{nf.icon}}"/>
     <div class="infosMedia">
         <h4 class="titre">
             {{nf.title}}
