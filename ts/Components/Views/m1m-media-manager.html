@@ -1,18 +1,24 @@
 <h1>{{nf.title}}</h1>
 <div class="mediaContent">
-    <div class="mediaLine" *ngIf="nf.longdescription"><span class="libelle">Description : </span>{{nf.longdescription}}</div>
+    <div class="left">
+        <div class="mediaLine" *ngIf="nf.longdescription"><span class="libelle">Description : </span><div class="desc">{{nf.longdescription}}</div></div>
 
-    <div class="mediaLine" *ngIf="nf.date"><span class="libelle">Date de création : </span>{{nf.date}}</div>
+        <div class="mediaLine" *ngIf="nf.description && !nf.longdescription "><span class="libelle">Description : </span><div class="desc">{{nf.description}}</div></div>
 
-    <div class="mediaLine" *ngIf="nf.creator"><span class="libelle">Auteur : </span>{{nf.creator}}</div>
+        <div class="mediaLine" *ngIf="nf.creator"><span class="libelle">Auteur : </span>{{nf.creator}}</div>
 
-    <span class="mediaLine" *ngIf="nf.genres != []"><span class="libelle">Genre : </span><span *ngFor="let genre of nf.genres" class="genre">{{genre}}</span></span>
+        <div class="mediaLine" *ngIf="nf.genres.length != 0"><span class="libelle">Genre : </span><span *ngFor="let genre of nf.genres" class="genre">{{genre}}</span></div>
 
-    <!--<img *ngIf="nf.icon" src="{{nf.icon}}"/>-->
+        <div class="mediaLine" *ngIf="nf.actors.length != 0"><span class="libelle">Acteurs : </span><span *ngFor="let actor of nf.actors" class="genre">{{actor}}</span></div>
 
-    <select name="lecteur">
-        <option *ngFor="let lecteur of this.comm.mediaRenderers" value="{{lecteur.id}}">{{lecteur.name}}</option>
-    </select>
+        <div class="mediaLine" *ngIf="nf.date"><span class="libelle">Date de création : </span>{{nf.date}}</div>
 
-    <button>Lancer</button>
+        <select name="lecteur">
+            <option selected disabled hidden>Selectionner un lecteur...</option>
+            <option *ngFor="let lecteur of this.comm.mediaRenderers" value="{{lecteur.id}}">{{lecteur.name}}</option>
+        </select>
+
+        <button>Lancer</button>
+    </div><img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/><img *ngIf="!nf.albumarturi" src="assets/images/b.jpg"/>
+
 </div>
