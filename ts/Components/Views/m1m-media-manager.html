@@ -18,7 +18,7 @@
             <option *ngFor="let lecteur of this.comm.mediaRenderers" value="{{lecteur.id}}">{{lecteur.name}}</option>
         </select>
 
-        <button>Lancer</button>
+        <button (click)="launchMedia()">Lancer</button>
     </div><img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/><img *ngIf="!nf.albumarturi" src="assets/images/b.jpg"/>
 
 </div>

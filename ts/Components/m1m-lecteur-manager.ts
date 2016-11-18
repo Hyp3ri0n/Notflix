@@ -13,29 +13,27 @@ export class CompLecteurManager implements OnInit {
     displayPause        : boolean = false;
     valueVolume         : number = 0;
     titleMedia          : string = "Pas de média lancé...";
-    regex               : RegExp = new RegExp("\<dc:title\>([a-zA-Z0-9_\.éèàç&-]*)\<\/dc:title\>");
+    regex               : RegExp = new RegExp("<dc:title>([a-zA-Z0-9_\.éèàç&\s-]*)</dc:title>");
+    // regex              : RegExp = new RegExp("\<dc:title\>([a-zA-Z0-9_\.éèàç&\s-]*)\<\/dc:title\>");
     // todo : regex ID : regexId             : RegExp = new RegExp("\<item id="([]*)" parentID="" restricted="1"\>");
 
     constructor(private comm: CommService, private element: ElementRef) {
-        console.log(comm);
+        console.log("");
     }
 
     ngOnInit() : void {
         console.log("Init Player");
         utils.call(this.nf.id, "getMediasStates", []).then((data) => {
-            console.log("test : ", data["urn:schemas-upnp-org:service:AVTransport:1"]);
             this.initLecteur(data);
         });
         utils.subscribeBrick(this.nf.id, "eventUPnP", (e) => { this.subscribeCallback(e); });
     }
 
     initLecteur(data: any) {
+        console.log("Data : ", data);
+
         let infosGeneral = data["urn:schemas-upnp-org:service:AVTransport:1"];
         let infosVolume = data["urn:schemas-upnp-org:service:RenderingControl:1"];
-
-
-        // Gestion de l'état de base du lecteur
-        console.log("retest : ", infosGeneral["CurrentTrackMetaData"]);
 
         // Play Pause
         if (infosGeneral["TransportState"] === "PLAYING") {
@@ -47,8 +45,10 @@ export class CompLecteurManager implements OnInit {
         }
 
         // Titre
-        if (infosGeneral["CurrentTrackMetaData"] !== "") {
-            this.titleMedia = this.regex.exec(infosGeneral["CurrentTrackMetaData"])[1];
+        if (infosGeneral !== null && infosGeneral["CurrentTrackMetaData"] !== "") {
+            //this.titleMedia = this.regex.exec(infosGeneralLinux["CurrentTrackMetaData"])[1];
+            let splitTab = infosGeneral["AVTransportURI"].split("\\");
+            this.titleMedia = splitTab[splitTab.length - 1];
         } else {
             this.titleMedia = "Pas de média lancé...";
         }
@@ -82,14 +82,13 @@ export class CompLecteurManager implements OnInit {
     }
 
     subscribeCallback(e) : void {
-        console.log(e);
+        console.log("subscribe callback : ", e);
 
         switch (e.data.attribut) {
             case "Volume" :
                 this.valueVolume = e.data.value;
                 break;
             case "TransportState":
-                //TODO recuperer l'etat de lecture (PLAYING, PAUSED_PLAYBACK, STOPPED)
                 if (e.data.value === "PLAYING") {
                     this.displayPause = true;
                 } else if (e.data.value === "PAUSED_PLAYBACK") {
@@ -107,7 +106,13 @@ export class CompLecteurManager implements OnInit {
             case "CurrentMediaDuration":
                 break;
             case "CurrentTrackMetaData":
-                this.titleMedia = this.regex.exec(e.data.value)[1];
+            case "itemMetaData":
+                // this.titleMedia = this.regex.exec(e.data.value)[1];
+                // console.log("title media : ", this.titleMedia);
+                break;
+            case "CurrentTrackURI":
+                let splitTab = e.data.value.split("\\");
+                this.titleMedia = splitTab[splitTab.length - 1];
                 break;
             case "AVTransportURIMetaData":
                 break;
