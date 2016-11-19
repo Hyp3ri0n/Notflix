@@ -13,9 +13,7 @@ export class CompLecteurManager implements OnInit {
     displayPause        : boolean = false;
     valueVolume         : number = 0;
     titleMedia          : string = "Pas de média lancé...";
-    regex               : RegExp = new RegExp("<dc:title>([a-zA-Z0-9_\.éèàç&\s-]*)</dc:title>");
-    // regex              : RegExp = new RegExp("\<dc:title\>([a-zA-Z0-9_\.éèàç&\s-]*)\<\/dc:title\>");
-    // todo : regex ID : regexId             : RegExp = new RegExp("\<item id="([]*)" parentID="" restricted="1"\>");
+    regex               : RegExp = new RegExp("<dc:title>([a-zA-Z0-9_\\.éèàç\\s\\-'&;`\\(\\)]*)\<\/dc:title>");
 
     constructor(private comm: CommService, private element: ElementRef) {
         console.log("");
@@ -30,8 +28,6 @@ export class CompLecteurManager implements OnInit {
     }
 
     initLecteur(data: any) {
-        console.log("Data : ", data);
-
         let infosGeneral = data["urn:schemas-upnp-org:service:AVTransport:1"];
         let infosVolume = data["urn:schemas-upnp-org:service:RenderingControl:1"];
 
@@ -45,11 +41,10 @@ export class CompLecteurManager implements OnInit {
         }
 
         // Titre
-        if (infosGeneral !== null && infosGeneral["CurrentTrackMetaData"] !== "") {
-            //this.titleMedia = this.regex.exec(infosGeneralLinux["CurrentTrackMetaData"])[1];
-            let splitTab = infosGeneral["AVTransportURI"].split("\\");
-            this.titleMedia = splitTab[splitTab.length - 1];
-        } else {
+        if(this.regex.test(infosGeneral["AVTransportURIMetaData"])) {
+            this.titleMedia = this.decodeTitle(this.regex.exec(infosGeneral["AVTransportURIMetaData"])[1]);
+        }
+        if(this.titleMedia === "") {
             this.titleMedia = "Pas de média lancé...";
         }
 
@@ -107,17 +102,20 @@ export class CompLecteurManager implements OnInit {
                 break;
             case "CurrentTrackMetaData":
             case "itemMetaData":
-                // this.titleMedia = this.regex.exec(e.data.value)[1];
-                // console.log("title media : ", this.titleMedia);
-                break;
-            case "CurrentTrackURI":
-                let splitTab = e.data.value.split("\\");
-                this.titleMedia = splitTab[splitTab.length - 1];
+                if(this.regex.test(e.data.value)) {
+                    this.titleMedia = this.decodeTitle(this.regex.exec(e.data.value)[1]);
+                }
                 break;
             case "AVTransportURIMetaData":
                 break;
             default:
                 break;
         }
+    }
+
+    decodeTitle(title : string) : string {
+        let newTitle : string = title;
+        newTitle = newTitle.replace(new RegExp("&apos;", "g"), "'");
+        return newTitle;
     }
 };
