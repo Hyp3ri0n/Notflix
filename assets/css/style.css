@@ -117,12 +117,16 @@ h1 {
 }
 
 #mainMenu .hamburger .labelHamburger {
-    padding-left: 15px;
+    margin-left: 15px;
     height: 25px;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 114px;
 }
 
 #mainMenu .listServers {
-    height: 70%;
+    height: 75%;
     border-bottom: white 1px solid;
 }
 
@@ -186,7 +190,7 @@ h1 {
 }
 
 #mainMenu .footerMenu {
-    height: 20%;
+    height: 15%;
 }
 
 #mainMenu .footerMenu .paddingIconMenu {

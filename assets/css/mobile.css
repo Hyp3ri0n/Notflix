@@ -1,6 +1,48 @@
 /*MOBILE*/
 @media screen and (max-width: 1080px) {
 
+    /* Left Menu */
+
+    #mainMenu .hamburger .labelHamburger {
+        background-image: url("../images/favicon.png");
+        width: 114px;
+    }
+
+    #mainMenu .itemServer .closeZoneServer {
+        /*taille logo srv + padding left 5px*/
+        width: calc(100% - 33px);
+    }
+
+    #mainMenu .itemServer .closeZoneServer .fa-times{
+        display: none;
+    }
+
+    #mainMenu .footerMenu .paddingIconMenu div {
+        display: none;
+    }
+
+    #mainMenu .footerMenu .paddingIconMenu i.fa-play-circle-o {
+        font-size: 42px;
+    }
+
+        /* Right menu */
+    #secondaryMenu {
+        display: none;
+    }
+
+    /* Content */
+
+    #content {
+        margin: 0;
+    }
+
+    /* Vue média */
+
+    #content m1m-media {
+       max-width: 200px;
+       max-height: 275px;
+   }
+
     #content m1m-media-manager .mediaContent .left {
         display: block;
         width: 100%;
@@ -13,5 +55,18 @@
         margin: 0 auto;
         float: left;
     }
+
+    #content m1m-media > div .infosMedia {
+        border-top: none;
+        height: 100%;
+        cursor: pointer;
+        background-color: rgba(50,50,50,0.7);
+    }
+
+    #content m1m-media > div .infosMedia .description {
+        display: block;
+
+    }
+
 
 }
