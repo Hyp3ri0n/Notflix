@@ -1,6 +1,10 @@
 /*MOBILE*/
 @media screen and (max-width: 1080px) {
 
+    body > div[alx-dragstart-css="mediaDrag"] {
+        display: none;
+    }
+
     /* Left Menu */
 
     #mainMenu .hamburger .labelHamburger {
@@ -15,14 +19,6 @@
 
     #mainMenu .itemServer .closeZoneServer .fa-times{
         display: none;
-    }
-
-    #mainMenu .footerMenu .paddingIconMenu div {
-        display: none;
-    }
-
-    #mainMenu .footerMenu .paddingIconMenu i.fa-play-circle-o {
-        font-size: 42px;
     }
 
         /* Right menu */
@@ -43,17 +39,16 @@
        max-height: 275px;
    }
 
-    #content m1m-media-manager .mediaContent .left {
+    #content m1m-media-manager .mediaContent .mediaRight {
         display: block;
         width: 100%;
         margin-bottom: 30px;
     }
 
-    #content m1m-media-manager .mediaContent img {
+    #content m1m-media-manager .mediaContent .aroundImage {
         display: block;
         max-width: 80%;
-        margin: 0 auto;
-        float: left;
+        margin: 10px auto;
     }
 
     #content m1m-media > div .infosMedia {

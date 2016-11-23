@@ -1,6 +1,6 @@
 <h1>{{nf.title}}</h1>
 <div class="mediaContent">
-    <div class="left">
+    <div class="aroundImage"><img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/><img *ngIf="!nf.albumarturi" src="assets/images/noImageSmall.png"/></div><div class="mediaRight">
         <div class="mediaLine" *ngIf="nf.longdescription"><span class="libelle">Description : </span><div class="desc">{{nf.longdescription}}</div></div>
 
         <div class="mediaLine" *ngIf="nf.description && !nf.longdescription "><span class="libelle">Description : </span><div class="desc">{{nf.description}}</div></div>
@@ -19,6 +19,6 @@
         </select>
 
         <button (click)="launchMedia()">Lancer</button>
-    </div><img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/><img *ngIf="!nf.albumarturi" src="assets/images/b.jpg"/>
+    </div>
 
 </div>

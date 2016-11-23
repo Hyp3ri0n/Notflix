@@ -25,15 +25,13 @@
                         [serverSelected]="true">
             </m1m-server>
         </div>
-        <div class="footerMenu">
+        <div class="footerMenu" (click)="this.appService.setModeApp(this.appService.MODE_LECTEURS);">
             <!--<div class="paddingIconMenu" (click)="this.appService.setModeApp(this.appService.MODE_SETTINGS);">
                 <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
                 <div *ngIf="menuDisplayed">Paramètres</div>
             </div>-->
-            <div class="paddingIconMenu" (click)="this.appService.setModeApp(this.appService.MODE_LECTEURS);">
-                <i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i>
-                <div *ngIf="menuDisplayed">En cours</div>
-            </div>
+            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+            <div *ngIf="menuDisplayed">Lecteurs</div>
         </div>
     </div>
     <!--MAIN-->
@@ -46,54 +44,13 @@
                 <div id="content">
                     <h1>Bienvenue sur Notflix !</h1>
                     <h2>La contrefaçon lowcost de Netflix.</h2>
-                    <div class="descriptifProjet" style="width: 45%; border-right: solid 1px white; display: inline-block;">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce luctus massa est, in
-                            dapibus augue efficitur ac. Donec sit amet lacus justo. Sed euismod sed diam vel scelerisque.
-                            Nunc fringilla lectus non enim sollicitudin auctor a nec dolor. Duis consectetur elit vitae ullamcorper pharetra.
-                            Quisque in ullamcorper nisi. Nulla interdum lectus vel dolor venenatis pellentesque. Duis eget placerat ex, non volutpat purus.
-                            In sit amet urna eu justo aliquet elementum eu ac felis. In laoreet mi id ex semper, at tincidunt neque vulputate.
-                            Pellentesque nec efficitur dolor, ut eleifend erat. Suspendisse sem arcu, fringilla sit amet hendrerit eu, maximus et ipsum.
-                            Phasellus rhoncus hendrerit lobortis. Quisque iaculis molestie lectus et lobortis.</p>
+                    <div class="descriptifProjet">
+                        <p>Ce projet à pour but de vous faire concevoir et développer des interfaces web pour interagir avec des services multimedia d’UPnP (mediaServer, mediaRenderer, norme DLNA) présents sur nombre d’appareil du commerce (TV, cadre photo, lecteur audio, …) ainsi que via de nombreux programmes pour ordinateurs (ex: Plex, Kodi), tablettes et téléphones (ex : Bubble UPnP). Vos interfaces devront permettre aux utilisateurs de naviguer dans les bases de médias (musiques, images, vidéos) et de piloter la lecture de ces médias sur les lecteurs dédiés (ex : Kodi).</p>
 
-                        <p>Sed eget mollis nunc, sed sodales sapien. Nullam et ligula non lectus ultricies euismod vitae nec urna.
-                            Vivamus pretium lectus eu euismod tincidunt. Duis ac ipsum nec nisi cursus placerat eu vel mi. Vestibulum vel leo quam.
-                            Vivamus ultrices odio a congue venenatis. Curabitur eu rutrum tellus. Etiam cursus velit eget justo lacinia aliquet.
-                            Pellentesque suscipit turpis arcu, nec pharetra ante porttitor nec. Mauris iaculis ex ut vehicula sagittis.</p>
+                        <p>Un serveur NodeJS vous est fourni, il permet d’accéder aux services UPnP présents sur le réseau local. Ce serveur permet de faire bien d’autres choses mais nous nous contenterons de cet aspect pour ce projet. Vous devrez cloner le code du serveur dans un projet github qui vous soit propre afin de travailler dessus. Il vous sera possible d’étendre le serveur selon vos besoin par la suite (ex: pour gérer l’interaction entre plusieurs plateformes comme un PC et des téléphones).</p>
 
-                        <p>Proin sem nisl, porta finibus lectus convallis, dictum vestibulum ante. Donec vitae purus eu lacus euismod vulputate.
-                            Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed eget ullamcorper sem, sed pharetra neque.
-                            Nam ac eros quis diam pharetra viverra. Phasellus interdum finibus nulla porta facilisis. Aliquam massa augue,
-                            hendrerit id tincidunt ac, facilisis sit amet diam. Suspendisse quis tellus vel quam gravida eleifend. Nulla fermentum bibendum nulla sit
-                            amet mattis. Mauris erat lectus, semper quis elit in, luctus convallis nulla. Quisque non tellus lorem. Nullam quam nisl, consequat
-                            ac pellentesque vel, fermentum nec purus. Nam sed egestas erat, nec suscipit lacus. Maecenas imperdiet, nibh vel laoreet semper, mauris
-                            lorem lacinia ipsum, quis auctor quam lacus rutrum justo. In rutrum purus et leo semper, a venenatis mauris pharetra.
-                            Quisque semper vestibulum tortor, et posuere ex posuere a.</p>
+                        <p>La partie cliente sera à coder par vos soin. Il faudra la développer de sorte à en permettre l’utilisation sur des plateformes aux caractéristiques différentes (PC, tablette, téléphone, écran passif + téléphone, …). Le choix des technologies à utiliser est libre, vous pouvez utiliser une technologie web (par exemple Angular 1.5.x vue en L3) ou pas (par exemple java SWING, openGL, …).</p>
                     </div>
-                    <
-                    <div class="descriptifProjet" style="width: 45%; display: inline-block;">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce luctus massa est, in
-                            dapibus augue efficitur ac. Donec sit amet lacus justo. Sed euismod sed diam vel scelerisque.
-                            Nunc fringilla lectus non enim sollicitudin auctor a nec dolor. Duis consectetur elit vitae ullamcorper pharetra.
-                            Quisque in ullamcorper nisi. Nulla interdum lectus vel dolor venenatis pellentesque. Duis eget placerat ex, non volutpat purus.
-                            In sit amet urna eu justo aliquet elementum eu ac felis. In laoreet mi id ex semper, at tincidunt neque vulputate.
-                            Pellentesque nec efficitur dolor, ut eleifend erat. Suspendisse sem arcu, fringilla sit amet hendrerit eu, maximus et ipsum.
-                            Phasellus rhoncus hendrerit lobortis. Quisque iaculis molestie lectus et lobortis.</p>
-
-                        <p>Sed eget mollis nunc, sed sodales sapien. Nullam et ligula non lectus ultricies euismod vitae nec urna.
-                            Vivamus pretium lectus eu euismod tincidunt. Duis ac ipsum nec nisi cursus placerat eu vel mi. Vestibulum vel leo quam.
-                            Vivamus ultrices odio a congue venenatis. Curabitur eu rutrum tellus. Etiam cursus velit eget justo lacinia aliquet.
-                            Pellentesque suscipit turpis arcu, nec pharetra ante porttitor nec. Mauris iaculis ex ut vehicula sagittis.</p>
-
-                        <p>Proin sem nisl, porta finibus lectus convallis, dictum vestibulum ante. Donec vitae purus eu lacus euismod vulputate.
-                            Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed eget ullamcorper sem, sed pharetra neque.
-                            Nam ac eros quis diam pharetra viverra. Phasellus interdum finibus nulla porta facilisis. Aliquam massa augue,
-                            hendrerit id tincidunt ac, facilisis sit amet diam. Suspendisse quis tellus vel quam gravida eleifend. Nulla fermentum bibendum nulla sit
-                            amet mattis. Mauris erat lectus, semper quis elit in, luctus convallis nulla. Quisque non tellus lorem. Nullam quam nisl, consequat
-                            ac pellentesque vel, fermentum nec purus. Nam sed egestas erat, nec suscipit lacus. Maecenas imperdiet, nibh vel laoreet semper, mauris
-                            lorem lacinia ipsum, quis auctor quam lacus rutrum justo. In rutrum purus et leo semper, a venenatis mauris pharetra.
-                            Quisque semper vestibulum tortor, et posuere ex posuere a.</p>
-                    </div>
-
                 </div>
             </div>
 
@@ -158,42 +115,6 @@
 
         <!-- Liste des lecteurs avec scroll présent mais caché -->
         <div id="idDivListOfLecteurs" class="listLecteurs">
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
-            <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
             <m1m-lecteur *ngFor="let lecteur of mediaRenderers" [nf]="lecteur"></m1m-lecteur>
         </div>
 

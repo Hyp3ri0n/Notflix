@@ -126,7 +126,7 @@ h1 {
 }
 
 #mainMenu .listServers {
-    height: 75%;
+    height: calc(90% - 50px);
     border-bottom: white 1px solid;
 }
 
@@ -190,14 +190,20 @@ h1 {
 }
 
 #mainMenu .footerMenu {
-    height: 15%;
-}
-
-#mainMenu .footerMenu .paddingIconMenu {
+    height: 50px;
     cursor : pointer;
 }
 
-#mainMenu .footerMenu .paddingIconMenu * {
+#mainMenu .footerMenu i {
+    font-size: 30px;
+}
+
+#mainMenu .footerMenu div {
+    padding-left: 5px;
+}
+
+#mainMenu .footerMenu * {
+    display: inline-block;
     vertical-align: middle;
 }
 
@@ -237,7 +243,7 @@ h1 {
 
 #secondaryMenu m1m-lecteur .lecteurItem {
     padding: 10px;
-    height: 120px;
+    height: 100px;
     background-color: rgba(88,88,88,0.8);
     display: flex;
     flex-flow: row;
@@ -343,6 +349,18 @@ h1 {
 #footer {
     height: 15%;
     flex: 0 1 auto;
+}
+
+.noImage {
+    background-color: white;
+}
+
+/************************/
+/********* HOME *********/
+/************************/
+
+#content .descriptifProjet {
+    text-align: justify;
 }
 
 /************************/
@@ -494,16 +512,17 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
     margin: 40px auto;
 }
 
-#content m1m-media-manager .mediaContent .left, #content m1m-media-manager .mediaContent img {
+#content m1m-media-manager .mediaContent .mediaRight, #content m1m-media-manager .mediaContent .aroundImage {
     display: inline-block;
     vertical-align: top;
     width: 50%;
     padding: 0 20px;
 }
 
-#content m1m-media-manager .mediaContent img {
+#content m1m-media-manager .mediaContent .aroundImage img {
     max-width: 100%;
-    width: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 #content m1m-media-manager .mediaContent .mediaLine{
