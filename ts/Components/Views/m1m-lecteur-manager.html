@@ -9,7 +9,7 @@
         <button title="INFO" class="fa fa-question-circle-o fa-2x" aria-hidden="true"></button>
     </div>
     <div class="controlVolume">
-        <i *ngIf="valueVolume == 0" class="labelVolume fa fa-deaf fa-2x" aria-hidden="true"></i>
+        <i (click)="mute()" *ngIf="valueVolume == 0" class="labelVolume fa fa-deaf fa-2x" aria-hidden="true"></i>
         <i (click)="mute()" *ngIf="valueVolume != 0" class="labelVolume fa fa-volume-up fa-2x" aria-hidden="true"></i>
         <input (change)="setVolume()" type="range" min="0" max="100" value="{{valueVolume}}"/>
     </div>

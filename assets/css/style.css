@@ -402,6 +402,7 @@ h1 {
 }
 
 #content m1m-lecteur-manager .lecteurItem .labelVolume {
+    cursor: pointer;
     color : white;
     display: inline-block;
 }

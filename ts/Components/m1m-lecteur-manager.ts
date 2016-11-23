@@ -10,12 +10,14 @@ import {utils} from "../Services/utils";
 export class CompLecteurManager implements OnInit {
     @Input() nf	        : MediaRenderer;
     media               : Media;
+    muted               : boolean = false;
+    oldVolume           : number  = 0;
     displayPause        : boolean = false;
-    valueVolume         : number = 0;
-    titleMedia          : string = "Pas de média lancé...";
-    regex               : RegExp = new RegExp("<dc:title>([a-zA-Z0-9_\\.éèàç\\s\\-'&;`\\(\\)]*)\<\/dc:title>");
-    regexWindowsFiles   : RegExp = new RegExp("\(.*)");
-    regexURLFiles       : RegExp = new RegExp("/(.*)");
+    valueVolume         : number  = 0;
+    titleMedia          : string  = "Pas de média lancé...";
+    regex               : RegExp  = new RegExp("<dc:title>([a-zA-Z0-9_\\.éèàç\\s\\-'&;`\\(\\)]*)\<\/dc:title>");
+    regexWindowsFiles   : RegExp  = new RegExp("\(.*)");
+    regexURLFiles       : RegExp  = new RegExp("/(.*)");
 
     constructor(private comm: CommService, private element: ElementRef) {
         console.log("");
@@ -138,5 +140,15 @@ export class CompLecteurManager implements OnInit {
         newTitle = newTitle.replace(new RegExp("%255B", "g"), "[");
         newTitle = newTitle.replace(new RegExp("%255D", "g"), "]");
         return newTitle;
+    }
+
+    mute() : void {
+        if (!this.muted) {
+            this.oldVolume = this.valueVolume;
+            this.valueVolume = 0;
+        } else {
+            this.valueVolume = this.oldVolume;
+        }
+        this.muted = !this.muted;
     }
 };
