@@ -10,6 +10,10 @@ select {
     color: #4D4D4D !important;
 }
 
+.switch {
+    margin-bottom: 0!important;
+}
+
 /*Scroll*/
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
@@ -326,7 +330,7 @@ h1 {
     /*border-bottom: whitesmoke 1px dashed;*/
 }
 
-#content h1, #content h2, #content h3, #content h4 {
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
     word-break: break-all;
 }
 
