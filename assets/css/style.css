@@ -509,18 +509,20 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
     width: 70%;
     min-width: 500px;
     display: block;
-    margin: 40px auto;
+    margin: 50px auto 30px auto;
+    padding: 20px;
+    background-color: rgba(30,30,30,0.4);
 }
 
 #content m1m-media-manager .mediaContent .mediaRight, #content m1m-media-manager .mediaContent .aroundImage {
     display: inline-block;
     vertical-align: top;
-    width: 50%;
     padding: 0 20px;
 }
 
 #content m1m-media-manager .mediaContent .aroundImage img {
-    max-width: 100%;
+    max-width: 400px;
+    max-height: 400px;
     display: block;
     margin: 0 auto;
 }
@@ -554,6 +556,16 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
 #content m1m-media-manager .mediaContent .mediaLine .genre:last-of-type:after {
     content: none;
     padding-right: 0;
+}
+
+#content m1m-media-manager .mediaContent .split:last-of-type {
+    border-top: 1px solid #FFF;
+    margin-top: 20px;
+}
+
+#content m1m-media-manager .mediaContent .split > div {
+    display: inline-block;
+    width: 50%;
 }
 
 #content m1m-media-manager .mediaContent select {

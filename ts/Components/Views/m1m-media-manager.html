@@ -1,24 +1,31 @@
 <h1>{{nf.title}}</h1>
 <div class="mediaContent">
-    <div class="aroundImage"><img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/><img *ngIf="!nf.albumarturi" src="assets/images/noImageSmall.png"/></div><div class="mediaRight">
-        <div class="mediaLine" *ngIf="nf.longdescription"><span class="libelle">Description : </span><div class="desc">{{nf.longdescription}}</div></div>
+    <div class="split">
+        <div class="aroundImage">
+            <img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/><img *ngIf="!nf.albumarturi" src="assets/images/noImageSmall.png"/>
+        </div><div class="mediaRight">
+            <div class="mediaLine" *ngIf="nf.longdescription"><span class="libelle">Description : </span><div class="desc">{{nf.longdescription}}</div></div>
 
-        <div class="mediaLine" *ngIf="nf.description && !nf.longdescription "><span class="libelle">Description : </span><div class="desc">{{nf.description}}</div></div>
+            <div class="mediaLine" *ngIf="nf.description && !nf.longdescription "><span class="libelle">Description : </span><div class="desc">{{nf.description}}</div></div>
 
-        <div class="mediaLine" *ngIf="nf.creator"><span class="libelle">Auteur : </span>{{nf.creator}}</div>
+            <div class="mediaLine" *ngIf="nf.creator"><span class="libelle">Auteur : </span>{{nf.creator}}</div>
 
-        <div class="mediaLine" *ngIf="nf.genres.length != 0"><span class="libelle">Genre : </span><span *ngFor="let genre of nf.genres" class="genre">{{genre}}</span></div>
+            <div class="mediaLine" *ngIf="nf.genres.length != 0"><span class="libelle">Genre : </span><span *ngFor="let genre of nf.genres" class="genre">{{genre}}</span></div>
 
-        <div class="mediaLine" *ngIf="nf.actors.length != 0"><span class="libelle">Acteurs : </span><span *ngFor="let actor of nf.actors" class="genre">{{actor}}</span></div>
+            <div class="mediaLine" *ngIf="nf.actors.length != 0"><span class="libelle">Acteurs : </span><span *ngFor="let actor of nf.actors" class="genre">{{actor}}</span></div>
 
-        <div class="mediaLine" *ngIf="nf.date"><span class="libelle">Date de création : </span>{{nf.date}}</div>
-
-        <select name="lecteur">
-            <option selected disabled hidden>Selectionner un lecteur...</option>
-            <option *ngFor="let lecteur of this.comm.mediaRenderers" value="{{lecteur.id}}">{{lecteur.name}}</option>
-        </select>
-
-        <button (click)="launchMedia()">Lancer</button>
+            <div class="mediaLine" *ngIf="nf.date"><span class="libelle">Date de création : </span>{{nf.date}}</div>
+        </div>
+    </div>
+    <div class="split">
+        <div>
+            <select name="lecteur">
+                <option selected disabled hidden>Selectionner un lecteur...</option>
+                <option *ngFor="let lecteur of this.comm.mediaRenderers" value="{{lecteur.id}}">{{lecteur.name}}</option>
+            </select>
+        </div><div>
+            <button (click)="launchMedia()">Lancer</button>
+        </div>
     </div>
 
 </div>
