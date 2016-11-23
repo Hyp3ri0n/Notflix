@@ -1,4 +1,4 @@
-/*MOBILE*/
+/*TABLETTE*/
 @media screen and (max-width: 1080px) {
 
     body > div[alx-dragstart-css="mediaDrag"] {
@@ -84,6 +84,32 @@
     /*#content m1m-media-manager .mediaContent button {
         padding: 20px 30px;
     }*/
+}
 
+@media screen and (max-width: 768px) and (orientation : landscape) {
+    body {
+        font-size: 16px;
+    }
 
+    #mainMenu {
+        max-width: 30%;
+    }
+
+    #mainMenu .itemServer .closeZoneServer {
+        width: calc(100% - 37px);
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation : portrait) {
+    body {
+        font-size: 24px;
+    }
+
+    #mainMenu {
+        max-width: 40%;
+    }
+
+    #mainMenu .itemServer .closeZoneServer {
+        width: calc(100% - 50px);
+    }
 }
