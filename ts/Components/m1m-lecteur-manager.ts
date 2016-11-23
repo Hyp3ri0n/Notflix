@@ -14,6 +14,8 @@ export class CompLecteurManager implements OnInit {
     valueVolume         : number = 0;
     titleMedia          : string = "Pas de média lancé...";
     regex               : RegExp = new RegExp("<dc:title>([a-zA-Z0-9_\\.éèàç\\s\\-'&;`\\(\\)]*)\<\/dc:title>");
+    regexWindowsFiles   : RegExp = new RegExp("\(.*)");
+    regexURLFiles       : RegExp = new RegExp("/(.*)");
 
     constructor(private comm: CommService, private element: ElementRef) {
         console.log("");
@@ -28,6 +30,7 @@ export class CompLecteurManager implements OnInit {
     }
 
     initLecteur(data: any) {
+        console.log("DATA : ", data);
         let infosGeneral = data["urn:schemas-upnp-org:service:AVTransport:1"];
         let infosVolume = data["urn:schemas-upnp-org:service:RenderingControl:1"];
 
@@ -41,8 +44,22 @@ export class CompLecteurManager implements OnInit {
         }
 
         // Titre
-        if(this.regex.test(infosGeneral["AVTransportURIMetaData"])) {
-            this.titleMedia = this.decodeTitle(this.regex.exec(infosGeneral["AVTransportURIMetaData"])[1]);
+        let lastIndex = infosGeneral["AVTransportURI"].lastIndexOf("\\");
+
+        if(lastIndex !== -1) {
+            let splitTitle = this.regexWindowsFiles.exec(infosGeneral["AVTransportURI"])[0].split("\\");
+            console.log(splitTitle);
+            this.titleMedia = this.decodeTitle(splitTitle[splitTitle.length - 1]);
+        } else {
+            let splitTitle = this.regexURLFiles.exec(infosGeneral["AVTransportURI"])[0].split("/");
+            console.log(splitTitle);
+            this.titleMedia = this.decodeTitle(splitTitle[splitTitle.length - 1]);
+        }
+
+        if(this.titleMedia === "") {
+            if(this.regex.test(infosGeneral["AVTransportURIMetaData"])) {
+                this.titleMedia = this.decodeTitle(this.regex.exec(infosGeneral["AVTransportURIMetaData"])[1]);
+            }
         }
         if(this.titleMedia === "") {
             this.titleMedia = "Pas de média lancé...";
@@ -116,6 +133,10 @@ export class CompLecteurManager implements OnInit {
     decodeTitle(title : string) : string {
         let newTitle : string = title;
         newTitle = newTitle.replace(new RegExp("&apos;", "g"), "'");
+        newTitle = newTitle.replace(new RegExp("%2527", "g"), "'");
+        newTitle = newTitle.replace(new RegExp("%2520", "g"), " ");
+        newTitle = newTitle.replace(new RegExp("%255B", "g"), "[");
+        newTitle = newTitle.replace(new RegExp("%255D", "g"), "]");
         return newTitle;
     }
 };

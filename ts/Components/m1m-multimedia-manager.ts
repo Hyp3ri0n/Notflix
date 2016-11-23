@@ -47,6 +47,7 @@ export class CompMultimediaManager implements OnInit {
     }
 
     selectedServer(event) : void {
+        this.menuDisplayed = true;
         console.log("Event from server, server : ", event);
         this.currentServer = this.currentServer === null ? event.value : null;
         if(this.currentServer !== null) {
