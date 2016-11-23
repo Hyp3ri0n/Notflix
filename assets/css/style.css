@@ -20,6 +20,7 @@ select {
 
 ::-webkit-scrollbar {
     width: 3px;
+    height : 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -128,6 +129,7 @@ h1 {
 #mainMenu .listServers {
     height: calc(90% - 50px);
     border-bottom: white 1px solid;
+    overflow: auto;
 }
 
 #mainMenu .listServers .paddingIconMenu.solo {
@@ -180,9 +182,9 @@ h1 {
     color : #4FC3F7;
 }
 
-#mainMenu .listDirectories m1m-directory .parentItem{
+/*#mainMenu .listDirectories m1m-directory .parentItem{
     overflow-x : hidden;
-}
+}*/
 
 #mainMenu .listDirectories m1m-directory .subItem {
     padding-left: 10px;
@@ -300,7 +302,7 @@ h1 {
     color : white;
     display: flex;
     flex-flow: column;
-    overflow: hidden;
+    overflow: auto;
 }
 
 #main .switch, #main .switchContent {
@@ -322,6 +324,10 @@ h1 {
     overflow: auto;
     flex: 1 1 auto;
     /*border-bottom: whitesmoke 1px dashed;*/
+}
+
+#content h1, #content h2, #content h3, #content h4 {
+    word-break: break-all;
 }
 
 #content.h70 {

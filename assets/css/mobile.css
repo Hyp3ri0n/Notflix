@@ -7,6 +7,10 @@
 
     /* Left Menu */
 
+    #mainMenu .listServers {
+        overflow: hidden;
+    }
+
     #mainMenu .hamburger .labelHamburger {
         background-image: url("../images/favicon.png");
         width: 114px;
@@ -77,9 +81,9 @@
         display: block;
     }
 
-    #content m1m-media-manager .mediaContent button {
+    /*#content m1m-media-manager .mediaContent button {
         padding: 20px 30px;
-    }
+    }*/
 
 
 }
