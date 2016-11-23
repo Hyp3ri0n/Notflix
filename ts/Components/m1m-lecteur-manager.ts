@@ -49,11 +49,11 @@ export class CompLecteurManager implements OnInit {
         let lastIndex = infosGeneral["AVTransportURI"].lastIndexOf("\\");
 
         if(lastIndex !== -1) {
-            let splitTitle = this.regexWindowsFiles.exec(infosGeneral["AVTransportURI"])[0].split("\\");
+            let splitTitle = infosGeneral["AVTransportURI"].split("\\");
             console.log(splitTitle);
             this.titleMedia = this.decodeTitle(splitTitle[splitTitle.length - 1]);
         } else {
-            let splitTitle = this.regexURLFiles.exec(infosGeneral["AVTransportURI"])[0].split("/");
+            let splitTitle = infosGeneral["AVTransportURI"].split("/");
             console.log(splitTitle);
             this.titleMedia = this.decodeTitle(splitTitle[splitTitle.length - 1]);
         }
@@ -82,6 +82,7 @@ export class CompLecteurManager implements OnInit {
         this.comm.stop(this.nf.id);
     }
     setVolume() : void {
+        this.muted = false;
         let e = this.element.nativeElement.querySelector("input[type=range]");
         this.valueVolume = e.value;
         this.comm.setVolume(this.nf.id, this.valueVolume);
@@ -122,7 +123,9 @@ export class CompLecteurManager implements OnInit {
             case "CurrentTrackMetaData":
             case "itemMetaData":
                 if(this.regex.test(e.data.value)) {
-                    this.titleMedia = this.decodeTitle(this.regex.exec(e.data.value)[1]);
+                    if(this.decodeTitle(this.regex.exec(e.data.value)[1]) !== "") {
+                        this.titleMedia = this.decodeTitle(this.regex.exec(e.data.value)[1]);
+                    }
                 }
                 break;
             case "AVTransportURIMetaData":
@@ -139,6 +142,7 @@ export class CompLecteurManager implements OnInit {
         newTitle = newTitle.replace(new RegExp("%2520", "g"), " ");
         newTitle = newTitle.replace(new RegExp("%255B", "g"), "[");
         newTitle = newTitle.replace(new RegExp("%255D", "g"), "]");
+        newTitle = newTitle.replace(new RegExp("%25c3%2580", "g"), "A");
         return newTitle;
     }
 
@@ -150,5 +154,6 @@ export class CompLecteurManager implements OnInit {
             this.valueVolume = this.oldVolume;
         }
         this.muted = !this.muted;
+        this.comm.setVolume(this.nf.id, this.valueVolume);
     }
 };

@@ -498,7 +498,7 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
 
 #content m1m-media > div:hover .infosMedia {
     border-top: none;
-    height: 100%;
+    height: 80%;
     -moz-transition: height 1s;
     -ms-transition: height 1s;
     -o-transition: height 1s;

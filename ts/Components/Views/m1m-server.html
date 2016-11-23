@@ -3,10 +3,9 @@
         <i class="fa fa-server fa-2x" aria-hidden="true"></i>
         <div *ngIf="menuDisplayed" class="closeZoneServer">
             <div class="labelServer">{{nf.name}}</div>
-            <i *ngIf="serverSelected" class="fa fa-times fa-2x" aria-hidden="true"></i>
         </div>
     </div>
-    <div class="listDirectories" *ngIf="menuDisplayed && serverSelected">
+    <div class="listDirectories" *ngIf="serverSelected" [hidden]="!menuDisplayed">
         <m1m-directory [nf]="folder" *ngFor="let folder of directories"></m1m-directory>
     </div>
 </div>

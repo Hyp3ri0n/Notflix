@@ -2,9 +2,9 @@
     <img *ngIf="!nf.albumarturi" src="assets/images/noImage.png"/>
     <img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/>
     <div class="infosMedia">
-        <h5 class="titre">
+        <h6 class="titre">
             {{nf.title}}
-        </h5>
+        </h6>
         <div *ngIf="nf.creator" class="annee">{{nf.creator}}</div>
         <!--<div *ngIf="nf.date" class="annee">{{nf.date}}</div>-->
         <div *ngIf="nf.description" class="description">

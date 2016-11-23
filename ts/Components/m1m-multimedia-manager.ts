@@ -46,6 +46,10 @@ export class CompMultimediaManager implements OnInit {
         console.log(this.menuDisplayed);
     }
 
+    backClick() {
+        this.currentServer = null;
+    }
+
     selectedServer(event) : void {
         this.menuDisplayed = true;
         console.log("Event from server, server : ", event);

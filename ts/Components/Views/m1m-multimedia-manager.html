@@ -18,6 +18,11 @@
                         [serverSelected]="false">
             </m1m-server>
             <!-- Affichage du serveur sélectionné -->
+            
+            <div (click)="backClick()" *ngIf="currentServer != null" class="paddingIconMenu">
+                <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+                <div *ngIf="menuDisplayed">Retour</div>
+            </div>
             <m1m-server *ngIf="currentServer != null"
                         [nf]="currentServer"
                         [menuDisplayed]="menuDisplayed"
