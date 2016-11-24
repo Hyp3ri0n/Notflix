@@ -1,4 +1,5 @@
-<div [alx-draggable]="nf" alx-dragstart-css="mediaDrag" (click)="afficheMedia()" title="{{nf.title}}">
+<div class="draggableMedia" (click)="afficheMedia()" title="{{nf.title}}">
+<!--<div [alx-draggable]="nf" alx-dragstart-css="mediaDrag" class="draggableMedia" (click)="afficheMedia()" title="{{nf.title}}">-->
     <img *ngIf="!nf.albumarturi" src="assets/images/noImage.png"/>
     <img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/>
     <div class="infosMedia">

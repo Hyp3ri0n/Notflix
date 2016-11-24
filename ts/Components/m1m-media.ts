@@ -16,7 +16,12 @@ export class CompMedia {
     renderer    : MediaRenderer = null;
 
     constructor(private comm : CommService, private app : AppService) {
-
+        /* if(!this.app.isMobile()) {
+            var medias = document.querySelectorAll(".draggableMedia");
+            console.log(medias);
+            medias.setAttribute("[alx-draggable]", "nf");
+            medias.setAttribute("alx-dragstart-css", "mediaDrag");
+        }*/
     }
     afficheMedia() {
         this.app.currentMedia = this.nf;
