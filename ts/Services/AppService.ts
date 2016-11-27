@@ -30,28 +30,27 @@ export class AppService {
         return this.currentDirectory;
     }
 
-    /*isMobile() : boolean{
-        let isMobile:boolean = {
+    isMobile() : boolean {
+        let isMobile = {
             Android: function() {
-                return navigator.userAgent.match('/Android/i');
+                return navigator.userAgent.match('/Android/i') ? true : false;
             },
             BlackBerry: function() {
-                return navigator.userAgent.match('/BlackBerry/i');
+                return navigator.userAgent.match('/BlackBerry/i') ? true : false;
             },
             iOS: function() {
-                return navigator.userAgent.match('/iPhone|iPad|iPod/i');
+                return navigator.userAgent.match('/iPhone|iPad|iPod/i') ? true : false;
             },
             Opera: function() {
-                return navigator.userAgent.match('/Opera Mini/i');
+                return navigator.userAgent.match('/Opera Mini/i') ? true : false;
             },
             Windows: function() {
-                return navigator.userAgent.match('/IEMobile/i');
+                return navigator.userAgent.match('/IEMobile/i') ? true : false;
             },
             any: function() {
                 return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
             }
         };
-
-        return isMobile;
-    }*/
+        return isMobile.any();
+    }
 }
