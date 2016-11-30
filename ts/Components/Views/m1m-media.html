@@ -1,5 +1,22 @@
-<div class="draggableMedia" (click)="afficheMedia()" title="{{nf.title}}">
-<!--<div [alx-draggable]="nf" alx-dragstart-css="mediaDrag" class="draggableMedia" (click)="afficheMedia()" title="{{nf.title}}">-->
+<div class="draggableMedia mobile" (click)="afficheMedia()" title="{{nf.title}}">
+        <img *ngIf="!nf.albumarturi" src="assets/images/noImage.png"/>
+        <img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/>
+        <div class="infosMedia">
+            <h6 class="titre">
+                {{nf.title}}
+            </h6>
+            <div *ngIf="nf.creator" class="annee">{{nf.creator}}</div>
+            <!--<div *ngIf="nf.date" class="annee">{{nf.date}}</div>-->
+            <div *ngIf="nf.description" class="description">
+                <div class="lbl">Description :</div>
+                <p>
+                    {{ nf.description}}
+                </p>
+            </div>
+        </div>
+</div>
+
+<div [alx-draggable]="nf" alx-dragstart-css="mediaDrag" class="draggableMedia desktop" (click)="afficheMedia()" title="{{nf.title}}">
     <img *ngIf="!nf.albumarturi" src="assets/images/noImage.png"/>
     <img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/>
     <div class="infosMedia">
