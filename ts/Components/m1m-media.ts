@@ -24,7 +24,9 @@ export class CompMedia {
         }*/
     }
     afficheMedia() {
+        console.log("Current dir", this.app.getCurrentDirectory());
         this.app.currentMedia = this.nf;
         this.app.setModeApp(this.app.MODE_MEDIA);
+        console.log("Current dir", this.app.getCurrentDirectory());
     }
 };

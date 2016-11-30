@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, ElementRef} from "@angular/core";
 import {CommService, Media, MediaRenderer} from "../Services/CommService";
+import {AppService} from "../Services/AppService";
 
 @Component({
     selector		: "m1m-media-manager",
@@ -10,8 +11,9 @@ export class CompMediaManager implements OnInit {
     @Input() nf	        : Media;
 
 
-    constructor(private comm: CommService, private element: ElementRef) {
+    constructor(private comm: CommService, private element: ElementRef, private as: AppService) {
         console.log(comm);
+        console.log("AppService : ", this.as);
     }
 
     ngOnInit() : void {
@@ -27,7 +29,8 @@ export class CompMediaManager implements OnInit {
     }
 
     backToDirectory() {
-        console.log("Back to ...");
+        console.log("AppService", this.as.getCurrentDirectory());
+        this.as.setModeApp(this.as.MODE_NAVIGATION);
         //Si possible mettre en title de la flèche, le nom du répertoire parent.
         //simuler un click sur le répertoire courrant du menu navigation
     }

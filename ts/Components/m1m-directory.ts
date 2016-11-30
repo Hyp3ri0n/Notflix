@@ -27,7 +27,7 @@ export class CompDirectory implements OnInit {
 
     itemClick() {
         this.as.setModeApp(this.as.MODE_NAVIGATION);
-        this.as.setCurrentDirectort(this.nf);
+        this.as.setCurrentDirectory(this.nf);
 
         [].forEach.call(document.querySelectorAll(".activeDirectory"), function (el) {
             el.classList.remove("activeDirectory");
