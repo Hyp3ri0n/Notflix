@@ -812,7 +812,7 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
     }
 
     #content .grid {
-        width: 300px;
+        width: 100%;
     }
 }
 
@@ -849,5 +849,11 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
     #content m1m-media-manager .mediaContent .aroundImage img {
         max-width: inherit;
         max-height: inherit;
+        width: 100%;
+    }
+
+    #content m1m-media-manager .mediaContent .mediaLine .desc {
+        display: block;
+        width: auto;
     }
 }
