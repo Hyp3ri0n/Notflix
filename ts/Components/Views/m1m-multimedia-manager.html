@@ -71,7 +71,7 @@
                 <div id="content" class="h85">
                     <m1m-media *ngFor="let media of this.comm.medias" [nf]="media" class="grid"></m1m-media>
                     <!--<div *ngIf="this.comm.medias.length === 0">Pas de média dans ce dossier ...</div>-->
-                    <img class="notFound" src="./assets/images/notFound.jpg" *ngIf="this.comm.medias.length === 0" title="Pas de médias dans ce dossier"/>
+                    <div class="notFound" *ngIf="this.comm.medias.length === 0"><b>Désolé</b> nous n'avons pas trouvé de <b>médias</b> pour ce dossier.</div>
                 </div>
             </div>
 

@@ -359,6 +359,7 @@ h1 {
      display : inline-flex;
      margin: 1%;
      flex-wrap: wrap;
+     width: 300px;
  }
 
 #footer {
@@ -420,9 +421,10 @@ h1 {
 /**** VUE NAVIGATION ****/
 /************************/
 #content .notFound {
-    width: 572px;
-    margin: 0 auto;
+    text-align: center;
     display: block;
+    color: #4FC3F7;
+    font-size: 28px;
 }
 
 
@@ -503,7 +505,7 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
 
 #content m1m-media > div:hover .infosMedia {
     border-top: none;
-    height: 80%;
+    height: 100%;
     -moz-transition: height 1s;
     -ms-transition: height 1s;
     -o-transition: height 1s;
@@ -830,5 +832,19 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
 
     #mainMenu .footerMenu div {
         font-size: 16px;
+    }
+
+    #mainMenu {
+        max-width: 50%;
+    }
+
+    #content m1m-lecteur-manager {
+        width: auto;
+        max-width: inherit;
+    }
+
+    #content m1m-media-manager .mediaContent .aroundImage img {
+        max-width: inherit;
+        max-height: inherit;
     }
 }
