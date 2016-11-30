@@ -17,7 +17,6 @@ export class AppService {
         if (mode !== this.modeApp) {
             if (mode < 6 || mode > 0) {
                 this.modeApp = mode;
-                //this.currentDirectory = null;
             }
         }
     }

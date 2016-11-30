@@ -29,7 +29,6 @@ export class CompMediaManager implements OnInit {
     }
 
     backToDirectory() {
-        console.log("AppService", this.as.getCurrentDirectory());
         this.as.setModeApp(this.as.MODE_NAVIGATION);
         //Si possible mettre en title de la flèche, le nom du répertoire parent.
         //simuler un click sur le répertoire courrant du menu navigation
