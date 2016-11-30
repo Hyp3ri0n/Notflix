@@ -359,7 +359,6 @@ h1 {
      display : inline-flex;
      margin: 1%;
      flex-wrap: wrap;
-     width: 300px;
  }
 
 #footer {
@@ -810,6 +809,10 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
 
     #content m1m-media-manager .mediaContent {
         min-width: inherit;
+    }
+
+    #content .grid {
+        width: 300px;
     }
 }
 
