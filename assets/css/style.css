@@ -393,16 +393,19 @@ h1 {
 #content m1m-lecteur-manager .lecteurItem {
     /* utilisation de foundation (col + ligne) */
     width: 100%;
+    height: 200px;
     text-align: center;
     padding: 10px 5px;
 
 }
 
-#content m1m-lecteur-manager .lecteurItem > div{
-    width: 100%;
+#content m1m-lecteur-manager .lecteurItem .titleMedia {
+    height: 63px;
+    overflow: hidden;
 }
 
-#content m1m-lecteur-manager .lecteurItem .labelLecteur{
+#content m1m-lecteur-manager .lecteurItem > div{
+    width: 100%;
 }
 
 #content m1m-lecteur-manager .lecteurItem .controlVolume {
