@@ -528,6 +528,15 @@ body > div[alx-dragstart-css="mediaDrag"] .infosMedia {
     margin: 50px auto 30px auto;
     padding: 20px;
     background-color: rgba(30,30,30,0.4);
+    position: relative;
+}
+
+#content m1m-media-manager .mediaContent .back {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    cursor: pointer;
+    z-index: 1;
 }
 
 #content m1m-media-manager .mediaContent .mediaRight, #content m1m-media-manager .mediaContent .aroundImage {

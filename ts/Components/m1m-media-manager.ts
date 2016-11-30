@@ -25,4 +25,10 @@ export class CompMediaManager implements OnInit {
         this.comm.loadMedia(selectedRenderer.id, this.nf.serverId, this.nf.mediaId);
         this.comm.play(selectedRenderer.id);
     }
+
+    backToDirectory() {
+        console.log("Back to ...");
+        //Si possible mettre en title de la flèche, le nom du répertoire parent.
+        //simuler un click sur le répertoire courrant du menu navigation
+    }
 };

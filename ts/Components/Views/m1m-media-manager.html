@@ -1,5 +1,6 @@
 <h1>{{nf.title}}</h1>
 <div class="mediaContent">
+    <i (click)="backToDirectory()" class="back fa fa-arrow-left fa-2x" aria-hidden="true"></i>
     <div class="split">
         <div class="aroundImage">
             <img *ngIf="nf.albumarturi" src="{{nf.albumarturi}}"/><img *ngIf="!nf.albumarturi" src="assets/images/noImageSmall.png"/>
